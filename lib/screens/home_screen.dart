@@ -94,15 +94,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          hintText: 'Search...',
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 4,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            hintText: 'Search...',
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide.none,
+                            ),
                           ),
                         ),
                       ),
@@ -110,15 +122,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(width: 10),
                     Container(
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Color(0xff205901), Color(0xff7bac31)],
-                        ),
                         shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 4,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
                       ),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.filter_list),
-                        color: Colors.white,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xff205901), Color(0xff7bac31)],
+                          ),
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.filter_list),
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
@@ -132,6 +157,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       colors: [Color(0xff205901), Color(0xff7bac31)],
                     ),
                     borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
                   ),
                   child: Center(
                     child: IconButton(
@@ -209,7 +242,7 @@ class CategoryButton extends StatelessWidget {
         onPressed: () => onTap(label),
         style: OutlinedButton.styleFrom(
           backgroundColor: isSelected
-              ? Colors.green
+              ? const Color.fromARGB(255, 81, 173, 85)
               : const Color.fromARGB(255, 190, 190, 190),
           shadowColor: Colors.black.withOpacity(0.5),
           elevation: isSelected ? 4 : 2,
@@ -252,28 +285,31 @@ class PlantCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
+        elevation: 4, // Add shadow
+        shadowColor: Colors.black.withOpacity(0.5), // Add shadow color
         child: Column(
           children: [
             Expanded(
               child: Hero(
                 tag: plant.image_path,
-                child: Image.asset(plant.image_path, fit: BoxFit.cover),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                  child: Image.asset(plant.image_path, fit: BoxFit.cover),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    plant.eng_name,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat',
-                    ),
+              child: Center(
+                child: Text(
+                  plant.eng_name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
                   ),
-                ],
+                ),
               ),
             ),
           ],
