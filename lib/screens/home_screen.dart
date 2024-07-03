@@ -40,12 +40,19 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.39,
                 color: Colors.black,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.7,
-                color: Colors.white,
+                height: MediaQuery.of(context).size.height *
+                    0.12, // 70% of the screen height
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
               ),
             ],
           ),
@@ -80,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.06,
+                                    MediaQuery.of(context).size.width * 0.10,
                                 fontFamily: 'Montserrat',
                               ),
                             ),
@@ -133,11 +140,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       child: Container(
+                        height: 57,
+                        width: 57,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Color(0xff205901), Color(0xff7bac31)],
                           ),
-                          shape: BoxShape.circle,
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(
                           onPressed: () {},
@@ -156,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     gradient: LinearGradient(
                       colors: [Color(0xff205901), Color(0xff7bac31)],
                     ),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.2),
@@ -179,25 +188,63 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 20),
                 Container(
                   height: 50,
+                  decoration: BoxDecoration(),
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      CategoryButton(
+                      // Wrap each CategoryButton with a Container without shadow
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 4), // Adjust margin as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                              8), // Border radius for rounded corners
+                        ),
+                        child: CategoryButton(
                           label: 'All plants',
                           isSelected: selectedCategory == 'All plants',
-                          onTap: filterPlants),
-                      CategoryButton(
+                          onTap: filterPlants,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 4), // Adjust margin as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                              8), // Border radius for rounded corners
+                        ),
+                        child: CategoryButton(
                           label: 'Culinary Herbs',
                           isSelected: selectedCategory == 'Culinary Herbs',
-                          onTap: filterPlants),
-                      CategoryButton(
+                          onTap: filterPlants,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 4), // Adjust margin as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                              8), // Border radius for rounded corners
+                        ),
+                        child: CategoryButton(
                           label: 'Herbal Teas',
                           isSelected: selectedCategory == 'Herbal Teas',
-                          onTap: filterPlants),
-                      CategoryButton(
+                          onTap: filterPlants,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 4), // Adjust margin as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                              8), // Border radius for rounded corners
+                        ),
+                        child: CategoryButton(
                           label: 'Aromatic Oils',
                           isSelected: selectedCategory == 'Aromatic Oils',
-                          onTap: filterPlants),
+                          onTap: filterPlants,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -254,7 +301,7 @@ class CategoryButton extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 255, 255, 238),
             fontFamily: 'Montserrat',
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),
@@ -305,7 +352,7 @@ class PlantCard extends StatelessWidget {
                   plant.eng_name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 13,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Montserrat',
                   ),

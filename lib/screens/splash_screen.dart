@@ -88,7 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: screenHeight * 0.04,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontFamily: 'Karla',
                     ),
                   ),
@@ -116,7 +116,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           }
                         },
                         style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.black.withOpacity(0.7),
+                          backgroundColor: Colors.black.withOpacity(0.6),
                           side:
                               const BorderSide(color: Colors.white, width: 2.0),
                           padding: EdgeInsets.symmetric(
@@ -131,6 +131,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           'Get Started',
                           style: TextStyle(
                             color: Colors.white,
+                            fontWeight: FontWeight.normal,
                             fontSize: screenHeight * 0.03,
                             fontFamily: 'Karla',
                           ),
