@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gg_app/models/plants.dart';
 
-class PlantScreen extends StatelessWidget {
+class PlantScreen extends StatefulWidget {
   final Plant plant;
 
   const PlantScreen({super.key, required this.plant});
+
+  @override
+  _PlantScreenState createState() => _PlantScreenState();
+}
+
+// Define an enum for content states
+enum ContentState { description, uses, benefits }
+
+class _PlantScreenState extends State<PlantScreen> {
+  // Track the current content state
+  ContentState _contentState = ContentState.description;
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +28,12 @@ class PlantScreen extends StatelessWidget {
             left: 0,
             right: 0,
             child: Hero(
-              tag: plant.image_path,
+              tag: widget.plant.image_path,
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.35,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(plant.image_path),
+                    image: AssetImage(widget.plant.image_path),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -53,12 +64,20 @@ class PlantScreen extends StatelessWidget {
                         IconButton(
                           icon: Icon(Icons.arrow_back, color: Colors.black),
                           onPressed: () {
-                            Navigator.pop(context);
+                            setState(() {
+                              if (_contentState == ContentState.benefits) {
+                                _contentState = ContentState.uses;
+                              } else if (_contentState == ContentState.uses) {
+                                _contentState = ContentState.description;
+                              } else {
+                                Navigator.pop(context);
+                              }
+                            });
                           },
                         ),
                         SizedBox(width: 10),
                         Text(
-                          plant.eng_name,
+                          widget.plant.eng_name,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 24,
@@ -75,7 +94,11 @@ class PlantScreen extends StatelessWidget {
                           children: [
                             SizedBox(height: 20),
                             Text(
-                              'Description',
+                              _contentState == ContentState.description
+                                  ? 'Description'
+                                  : _contentState == ContentState.uses
+                                      ? 'Uses'
+                                      : 'Benefits',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 28,
@@ -85,7 +108,11 @@ class PlantScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              plant.description,
+                              _contentState == ContentState.description
+                                  ? widget.plant.description ?? ''
+                                  : _contentState == ContentState.uses
+                                      ? widget.plant.uses ?? ''
+                                      : widget.plant.benefits ?? '',
                               style: TextStyle(
                                 fontSize: 18,
                                 fontFamily: 'Montserrat',
@@ -99,7 +126,15 @@ class PlantScreen extends StatelessWidget {
                               children: [
                                 ElevatedButton(
                                   onPressed: () {
-                                    // Implement Uses & Benefits functionality
+                                    setState(() {
+                                      if (_contentState ==
+                                          ContentState.description) {
+                                        _contentState = ContentState.uses;
+                                      } else if (_contentState ==
+                                          ContentState.uses) {
+                                        _contentState = ContentState.benefits;
+                                      }
+                                    });
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.green,
@@ -111,7 +146,11 @@ class PlantScreen extends StatelessWidget {
                                         horizontal: 32, vertical: 16),
                                   ),
                                   child: Text(
-                                    'Uses & Benefits',
+                                    _contentState == ContentState.description
+                                        ? 'Uses'
+                                        : _contentState == ContentState.uses
+                                            ? 'Benefits'
+                                            : 'Benefits',
                                     style: TextStyle(
                                       fontFamily: 'Karla',
                                       fontSize: 20,

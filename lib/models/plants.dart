@@ -4,12 +4,17 @@ part 'plants.g.dart';
 
 @HiveType(typeId: 1)
 class Plant {
-  Plant(
-      {required this.eng_name,
-      required this.tag_name,
-      required this.sci_name,
-      required this.description,
-      required this.image_path});
+  Plant({
+    required this.eng_name,
+    required this.tag_name,
+    required this.sci_name,
+    required this.description,
+    required this.image_path,
+    required this.uses,
+    required this.benefits,
+    required this.process,
+  });
+
   @HiveField(0)
   String eng_name;
 
@@ -24,4 +29,13 @@ class Plant {
 
   @HiveField(4)
   String image_path;
+
+  @HiveField(5)
+  String uses;
+
+  @HiveField(6)
+  String benefits;
+
+  @HiveField(7)
+  String process;
 }
