@@ -286,7 +286,7 @@ class PlantCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         elevation: 4, // Add shadow
-        shadowColor: Colors.black.withOpacity(0.5), // Add shadow color
+        shadowColor: Colors.black.withOpacity(0.7), // Add shadow color
         child: Column(
           children: [
             Expanded(
@@ -305,7 +305,7 @@ class PlantCard extends StatelessWidget {
                   plant.eng_name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Montserrat',
                   ),
