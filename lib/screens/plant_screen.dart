@@ -25,6 +25,14 @@ class PlantScreen extends StatelessWidget {
                     image: AssetImage(plant.image_path),
                     fit: BoxFit.cover,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -109,6 +117,8 @@ class PlantScreen extends StatelessWidget {
                                     ),
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 32, vertical: 16),
+                                    shadowColor: Colors.black.withOpacity(0.3),
+                                    elevation: 5,
                                   ),
                                   child: Text(
                                     'Uses & Benefits',
@@ -131,6 +141,8 @@ class PlantScreen extends StatelessWidget {
                                     ),
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 32, vertical: 16),
+                                    shadowColor: Colors.black.withOpacity(0.3),
+                                    elevation: 5,
                                   ),
                                   child: Text(
                                     'Process',
@@ -144,14 +156,29 @@ class PlantScreen extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: 20),
-                            Text(
-                              'Note: While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Montserrat',
-                                color: Colors.black54,
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                    offset: Offset(0, 2),
+                                  ),
+                                ],
                               ),
-                              textAlign: TextAlign.justify,
+                              padding: EdgeInsets.all(16),
+                              child: Text(
+                                'Note: While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black54,
+                                ),
+                                textAlign: TextAlign.justify,
+                              ),
                             ),
                           ],
                         ),

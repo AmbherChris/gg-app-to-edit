@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       body: Stack(
         children: [
           Column(
@@ -45,12 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 height: MediaQuery.of(context).size.height *
-                    0.12, // 70% of the screen height
+                    0.61, // 70% of the screen height
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(17),
+                    topRight: Radius.circular(17),
                   ),
                 ),
               ),
