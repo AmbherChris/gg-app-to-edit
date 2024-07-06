@@ -20,6 +20,7 @@ class _PlantScreenState extends State<PlantScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 131, 131, 131),
       body: Stack(
         children: [
           // Top 35% with background image
@@ -37,12 +38,7 @@ class _PlantScreenState extends State<PlantScreen> {
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3),
-                    ),
+                    BoxShadow(),
                   ],
                 ),
               ),
@@ -56,7 +52,7 @@ class _PlantScreenState extends State<PlantScreen> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.65,
               decoration: BoxDecoration(
-                color: Color(0xFFF5EFE6), // Cream color
+                color: Color.fromARGB(255, 245, 239, 230), // Cream color
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
@@ -100,7 +96,7 @@ class _PlantScreenState extends State<PlantScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 20),
+                            SizedBox(height: 20, width: 100),
                             Text(
                               _contentState == ContentState.description
                                   ? 'Description'
