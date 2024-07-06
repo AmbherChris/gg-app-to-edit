@@ -11,6 +11,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Plant> displayedPlants = allPlants; // Default to all plants
   String selectedCategory = 'All plants'; // Default category
+  TextEditingController searchController = TextEditingController();
+  List<Plant> searchResults = [];
 
   void filterPlants(String category) {
     setState(() {
@@ -30,6 +32,29 @@ class _HomeScreenState extends State<HomeScreen> {
           break;
       }
     });
+  }
+
+  void searchPlants(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        searchResults = [];
+      } else {
+        searchResults = allPlants.where((plant) {
+          return plant.eng_name.toLowerCase().contains(query.toLowerCase()) ||
+              plant.tag_name.toLowerCase().contains(query.toLowerCase()) ||
+              plant.sci_name.toLowerCase().contains(query.toLowerCase());
+        }).toList();
+      }
+    });
+  }
+
+  void navigateToPlant(Plant plant) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PlantScreen(plant: plant),
+      ),
+    );
   }
 
   @override
@@ -114,6 +139,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         child: TextField(
+                          controller: searchController,
+                          onChanged: searchPlants,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search),
                             hintText: 'Search...',
@@ -158,6 +185,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+                if (searchResults.isNotEmpty)
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: searchResults.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(searchResults[index].eng_name),
+                          onTap: () {
+                            navigateToPlant(searchResults[index]);
+                          },
+                        );
+                      },
+                    ),
+                  ),
                 SizedBox(height: 20),
                 Container(
                   width: double.infinity,
@@ -284,27 +339,32 @@ class CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-      child: OutlinedButton(
-        onPressed: () => onTap(label),
-        style: OutlinedButton.styleFrom(
-          backgroundColor: isSelected
-              ? const Color.fromARGB(255, 81, 173, 85)
-              : const Color.fromARGB(255, 190, 190, 190),
-          shadowColor: Colors.black.withOpacity(0.5),
-          elevation: isSelected ? 4 : 2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          side: BorderSide(color: Colors.transparent),
+    return GestureDetector(
+      onTap: () => onTap(label),
+      child: Container(
+        height: 50,
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? Color(0xff7bac31)
+              : Color.fromARGB(255, 224, 224, 224),
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
         ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: Color.fromARGB(255, 255, 255, 238),
-            fontFamily: 'Montserrat',
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+        child: Center(
+          child: Text(
+            label,
+            style: TextStyle(
+              color: isSelected ? Colors.white : Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
@@ -315,7 +375,7 @@ class CategoryButton extends StatelessWidget {
 class PlantCard extends StatelessWidget {
   final Plant plant;
 
-  PlantCard({required this.plant});
+  const PlantCard({required this.plant});
 
   @override
   Widget build(BuildContext context) {

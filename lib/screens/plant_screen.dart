@@ -17,10 +17,22 @@ class _PlantScreenState extends State<PlantScreen> {
   // Track the current content state
   ContentState _contentState = ContentState.description;
 
+  // Create a ScrollController to control scrolling
+  final ScrollController _scrollController = ScrollController();
+
+  void _scrollToTop() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollController.animateTo(
+        0.0,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 131, 131, 131),
       body: Stack(
         children: [
           // Top 35% with background image
@@ -38,7 +50,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
-                    BoxShadow(),
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 255, 255, 255)
+                          .withOpacity(0.3),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
                   ],
                 ),
               ),
@@ -52,7 +70,7 @@ class _PlantScreenState extends State<PlantScreen> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.65,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 245, 239, 230), // Cream color
+                color: Color(0xFFF5EFE6), // Cream color
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
@@ -76,6 +94,7 @@ class _PlantScreenState extends State<PlantScreen> {
                               } else {
                                 Navigator.pop(context);
                               }
+                              _scrollToTop();
                             });
                           },
                         ),
@@ -93,10 +112,11 @@ class _PlantScreenState extends State<PlantScreen> {
                     ),
                     Expanded(
                       child: SingleChildScrollView(
+                        controller: _scrollController,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 20, width: 100),
+                            SizedBox(height: 20),
                             Text(
                               _contentState == ContentState.description
                                   ? 'Description'
@@ -110,7 +130,33 @@ class _PlantScreenState extends State<PlantScreen> {
                                 fontFamily: 'Montserrat',
                               ),
                             ),
-                            SizedBox(height: 10),
+                            if (_contentState == ContentState.description)
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'Tagalog name: ${widget.plant.tag_name}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'Scientific name: ${widget.plant.sci_name}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            SizedBox(height: 35),
                             Text(
                               _contentState == ContentState.description
                                   ? widget.plant.description ?? ''
@@ -128,42 +174,64 @@ class _PlantScreenState extends State<PlantScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (_contentState ==
-                                          ContentState.description) {
+                                if (_contentState == ContentState.description)
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
                                         _contentState = ContentState.uses;
-                                      } else if (_contentState ==
-                                          ContentState.uses) {
+                                      });
+                                      _scrollToTop();
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.green,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 32, vertical: 16),
+                                      shadowColor:
+                                          Colors.black.withOpacity(0.3),
+                                      elevation: 5,
+                                    ),
+                                    child: Text(
+                                      'Uses & Benefits',
+                                      style: TextStyle(
+                                        fontFamily: 'Karla',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                if (_contentState == ContentState.uses)
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
                                         _contentState = ContentState.benefits;
-                                      }
-                                    });
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.green,
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
+                                      });
+                                      _scrollToTop();
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.green,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 32, vertical: 16),
+                                      shadowColor:
+                                          Colors.black.withOpacity(0.3),
+                                      elevation: 5,
                                     ),
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 32, vertical: 16),
-                                    shadowColor: Colors.black.withOpacity(0.3),
-                                    elevation: 5,
-                                  ),
-                                  child: Text(
-                                    _contentState == ContentState.description
-                                        ? 'Uses'
-                                        : _contentState == ContentState.uses
-                                            ? 'Benefits'
-                                            : 'Benefits',
-                                    style: TextStyle(
-                                      fontFamily: 'Karla',
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
+                                    child: Text(
+                                      'Benefits',
+                                      style: TextStyle(
+                                        fontFamily: 'Karla',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
-                                ),
                                 ElevatedButton(
                                   onPressed: () {
                                     // Implement Process functionality
