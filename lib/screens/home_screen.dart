@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gg_app/models/plants.dart';
 import 'package:gg_app/plant_data.dart';
 import 'plant_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -57,6 +59,15 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void navigateToSettings() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SettingsScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.black,
               ),
               Container(
-                height: MediaQuery.of(context).size.height *
-                    0.61, // 70% of the screen height
+                height: MediaQuery.of(context).size.height * 0.61,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -177,9 +187,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.filter_list),
-                          color: Colors.white,
+                          onPressed: navigateToSettings,
+                          icon: SvgPicture.asset(
+                            'assets/icons/settings-adjust-svgrepo-com.svg',
+                            width: 35,
+                            height: 35,
+                          ),
                         ),
                       ),
                     ),
@@ -233,8 +246,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Center(
                     child: IconButton(
-                      icon:
-                          Icon(Icons.camera_alt, size: 50, color: Colors.white),
+                      icon: SvgPicture.asset(
+                        'assets/icons/scan-svgrepo-com.svg',
+                        width: 100,
+                        height: 100,
+                      ),
                       onPressed: () {
                         // Implement plant scanner feature
                       },
@@ -248,13 +264,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      // Wrap each CategoryButton with a Container without shadow
                       Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 4), // Adjust margin as needed
+                        margin: EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              8), // Border radius for rounded corners
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
                           label: 'All plants',
@@ -263,11 +276,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 4), // Adjust margin as needed
+                        margin: EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              8), // Border radius for rounded corners
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
                           label: 'Culinary Herbs',
@@ -276,11 +287,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 4), // Adjust margin as needed
+                        margin: EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              8), // Border radius for rounded corners
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
                           label: 'Herbal Teas',
@@ -289,11 +298,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 4), // Adjust margin as needed
+                        margin: EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              8), // Border radius for rounded corners
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
                           label: 'Aromatic Oils',
@@ -393,8 +400,8 @@ class PlantCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        elevation: 4, // Add shadow
-        shadowColor: Colors.black.withOpacity(0.7), // Add shadow color
+        elevation: 4,
+        shadowColor: Colors.black.withOpacity(0.7),
         child: Column(
           children: [
             Expanded(
