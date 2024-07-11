@@ -36,7 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _closeApp() {
-    // Close the app by popping the main route
     Navigator.of(context).pop();
   }
 
@@ -294,7 +293,7 @@ class _TermsDialogState extends State<TermsDialog> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
-            elevation: 0, // Remove shadow
+            elevation: 0,
           ),
         ),
       ],
@@ -303,6 +302,5 @@ class _TermsDialogState extends State<TermsDialog> {
 
   void _closeApp() {
     Navigator.of(context).pop();
-    // Implement the method to close the app
   }
 }

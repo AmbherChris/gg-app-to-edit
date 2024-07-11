@@ -10,14 +10,10 @@ class PlantScreen extends StatefulWidget {
   _PlantScreenState createState() => _PlantScreenState();
 }
 
-// Define an enum for content states
 enum ContentState { description, uses, benefits }
 
 class _PlantScreenState extends State<PlantScreen> {
-  // Track the current content state
   ContentState _contentState = ContentState.description;
-
-  // Create a ScrollController to control scrolling
   final ScrollController _scrollController = ScrollController();
 
   void _scrollToTop() {
@@ -35,7 +31,6 @@ class _PlantScreenState extends State<PlantScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Top 35% with background image
           Positioned(
             top: 0,
             left: 0,
@@ -62,7 +57,6 @@ class _PlantScreenState extends State<PlantScreen> {
               ),
             ),
           ),
-          // Bottom 65% with content
           Positioned(
             bottom: 0,
             left: 0,
@@ -70,7 +64,7 @@ class _PlantScreenState extends State<PlantScreen> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.65,
               decoration: BoxDecoration(
-                color: Color(0xFFF5EFE6), // Cream color
+                color: Color(0xFFF5EFE6),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
