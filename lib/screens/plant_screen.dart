@@ -3,8 +3,10 @@ import 'package:gg_app/models/plants.dart';
 
 class PlantScreen extends StatefulWidget {
   final Plant plant;
+  final bool isEnglish;
 
-  const PlantScreen({super.key, required this.plant});
+  // Corrected constructor definition
+  PlantScreen({required this.plant, required this.isEnglish});
 
   @override
   _PlantScreenState createState() => _PlantScreenState();
@@ -65,6 +67,32 @@ class _PlantScreenState extends State<PlantScreen> {
     });
   }
 
+  String getTextContent() {
+    switch (_contentState) {
+      case ContentState.description:
+        return widget.isEnglish
+            ? widget.plant.description
+            : widget.plant.tag_description;
+      case ContentState.usesAndBenefits:
+        return widget.isEnglish ? widget.plant.uses : widget.plant.tag_uses;
+      case ContentState.process:
+        return widget.isEnglish
+            ? widget.plant.process
+            : widget.plant.tag_process;
+      default:
+        return '';
+    }
+  }
+
+  String getBenefits() {
+    if (_contentState == ContentState.usesAndBenefits) {
+      return widget.isEnglish
+          ? widget.plant.benefits
+          : widget.plant.tag_benefits;
+    }
+    return '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +109,7 @@ class _PlantScreenState extends State<PlantScreen> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(widget.plant.image_path),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.scaleDown,
                   ),
                   boxShadow: [
                     BoxShadow(
@@ -122,7 +150,9 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          widget.plant.eng_name,
+                          widget.isEnglish
+                              ? widget.plant.eng_name
+                              : widget.plant.tag_name,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 28,
@@ -179,7 +209,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                   ),
                                   SizedBox(height: 25),
                                   Text(
-                                    widget.plant.description ?? '',
+                                    getTextContent(),
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Montserrat',
@@ -195,7 +225,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                 children: [
                                   SizedBox(height: 10),
                                   Text(
-                                    widget.plant.uses ?? '',
+                                    getTextContent(),
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Montserrat',
@@ -215,7 +245,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                   ),
                                   SizedBox(height: 20),
                                   Text(
-                                    widget.plant.benefits ?? '',
+                                    getBenefits(),
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Montserrat',
@@ -231,7 +261,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                 children: [
                                   SizedBox(height: 20),
                                   Text(
-                                    widget.plant.process ?? '',
+                                    getTextContent(),
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Montserrat',
@@ -304,22 +334,12 @@ class _PlantScreenState extends State<PlantScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
+                                    color: Colors.black.withOpacity(0.3),
                                     spreadRadius: 2,
                                     blurRadius: 5,
-                                    offset: Offset(0, 2),
+                                    offset: Offset(0, 3),
                                   ),
                                 ],
-                              ),
-                              padding: EdgeInsets.all(16),
-                              child: Text(
-                                'Note: While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.black54,
-                                ),
-                                textAlign: TextAlign.justify,
                               ),
                             ),
                           ],

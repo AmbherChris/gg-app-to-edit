@@ -13,6 +13,10 @@ class Plant {
     required this.uses,
     required this.benefits,
     required this.process,
+    required this.tag_description,
+    required this.tag_uses,
+    required this.tag_benefits,
+    required this.tag_process,
   });
 
   @HiveField(0)
@@ -38,4 +42,16 @@ class Plant {
 
   @HiveField(7)
   String process;
+
+  @HiveField(8)
+  String tag_description;
+
+  @HiveField(9)
+  String tag_uses;
+
+  @HiveField(10)
+  String tag_benefits;
+
+  @HiveField(11)
+  String tag_process;
 }

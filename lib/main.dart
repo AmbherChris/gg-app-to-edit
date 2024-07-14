@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:gg_app/models/plants.dart';
 import 'package:gg_app/screens/splash_screen.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:gg_app/language_manager.dart';
 import 'plant_data.dart';
 
 late Box<Plant> box;
@@ -26,8 +28,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashScreen(),
+    return ChangeNotifierProvider(
+      create: (_) => LanguageManager(),
+      child: MaterialApp(
+        home: const SplashScreen(),
+      ),
     );
   }
 }
