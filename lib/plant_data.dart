@@ -274,12 +274,13 @@ final allPlants = [
   Plant(
     eng_name: 'Garlic',
     tag_name: 'Bawang',
-    sci_name: 'test',
-    description: 'test',
+    sci_name: 'Allium sativum, L',
+    description:
+        "The leaves are long, narrow and flat like grass. The bulb (the only part eaten) is of a compound nature, 	consisting of numerous bulblets, known technically as 'cloves,' grouped together between the 	membranous scales and enclosed within a whitish skin, which holds them as in a sac. The flowers are 		placed at the end of a stalk rising direct from the bulb and are whitish, grouped together in a globular 	head, or umbel, with an enclosing kind of leaf or spathae, and among them are small bulbils. To prevent 	the plant running to leaf, Pliny (Natural History, XIX, 34) advised bending the stalk downward and 	covering it with earth, seeding, he observed, may be prevented by twisting the stalk. In England, Garlic, 	apart from medicinal purposes, is seldom used except as a seasoning, but in the southern counties of 	Europe it is a common ingredient in dishes, and is largely consumed by the agricultural population. From 	the earliest times, indeed, Garlichas been used as an article of diet.",
     uses: 'test',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/garlic.png',
+    image_path: 'assets/plants/Garlic.png',
   ),
   Plant(
     eng_name: 'Ginger',
@@ -291,7 +292,7 @@ final allPlants = [
         'Bawang is a traditional Chinese medicine used to treat heart and circulatory conditions like atherosclerosis, heart attack, high cholesterol, hypertension, and coronary heart disease. Studies show garlic can reduce LDL cholesterol and improve blood pressure in high blood pressure patients. However, the odor of garlic can disrupt its effectiveness, especially when used for medicinal purposes.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/ginger.png',
+    image_path: 'assets/plants/Ginger.png',
   ),
   Plant(
     eng_name: 'Goat Weed',
@@ -327,7 +328,7 @@ final allPlants = [
         'The green fruit is acid and very astringent. The stage of development when it is best eaten raw, is just before it ripens, for then its acidity has lessened, it is not astringent and does not emit the strong odor, so disagreeable to many, that characterizes the ripe fruit. When fully ripe it is sweet, non-astringent and very bland, and this is the stage when it is best for making the jellies and preserves so popular in the Philippines.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/guava.png',
+    image_path: 'assets/plants/Guava.png',
   ),
   Plant(
     eng_name: 'Indian Acalypa',
@@ -387,7 +388,7 @@ final allPlants = [
         'The dried and pulverized kernel of the seed is used as an anthelmintic in doses of 1½–2 grams both in India and Brazil. The same preparation is used in the Philippines in the treatment of dysentery and diarrhea and its effect is doubtless due to the large quantity of tannin it contains. It is administered as follows: The pounded kernels of 20–25 seeds are brought to a boil in 2 bottles (sic) of water. When the liquid has evaporated a third, it is removed from the fire, cooled, decanted, and again placed on the fire after adding three to four hundred grams of sugar. This time it is allowed to boil till reduced to one bottle. The dose is 50–60 grams 2–3 times a day. Incisions in the trunk exude a brownish resin which solidifies in the air, is slightly acrid, bitter, dissolves in alcohol and partially in water. In Malabar it is given internally in the treatment of diarrhea and dysentery, mixing it with white of egg and opium. But the curative value of the combination is more likely due to the albumen and opium than to the resin. Dissolved in lemon juice it is a useful application in the itch. The trunk bark is astringent and is employed in decoction as a wash for ulcers and eczema and as an injection in leucorrhea.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/mango.png',
+    image_path: 'assets/plants/Mango.png',
   ),
   Plant(
     eng_name: 'Mangosteen',
@@ -399,7 +400,7 @@ final allPlants = [
         'The seed of the fruit is astringent and is given internally as an infusion in dysentery and chronic diarrhea. The decoction is very useful as an injection in leucorrhea.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/mangosteen.png',
+    image_path: 'assets/plants/Mangosteen.png',
   ),
   Plant(
     eng_name: 'Manila Hemp',
@@ -435,7 +436,7 @@ final allPlants = [
         'The root is vesicant and the Filipinos bruise it and use it for synapsis. I have often observed, however, that it is quite painful used in this way. Dr. Waitz states that it is a good plan to add a few drops of the root juice to mustard synapsis, a proceeding which seems to me superfluous, especially in the case of children as he advises it.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/moringa.png',
+    image_path: 'assets/plants/Moringa.png',
   ),
   Plant(
     eng_name: 'Morning Glory',
@@ -453,11 +454,12 @@ final allPlants = [
     eng_name: 'Mulberry',
     tag_name: 'Moras',
     sci_name: 'Morus rubra',
-    description: 'test',
+    description:
+        "A small tree 11 or more feet high, branches opposite, quadrate at the extremities. Leaves opposite, oval, oblong, smooth, entire, glabrous. Petioles very short, with 2 broad, lanceolate stipules curved outward. Flowers white, opposite the leaves, fixed on globose, solitary receptacles from which spring the flowerets. Calyx proper, very short, monophyllous, a lanceolate leaflet springing from the border. Corolla tubular, woolly inside about the middle, with 5 lobules. Stamens 5, inserted on the walls of the corolla. Anthers thin, incumbent. Pistil somewhat longer than the corolla. Stigma cleft in 2 lamina. Fruit: the receptacle of the flowerets ripens to a globe bristling with the remains of the calyces, like a berry covered with many smaller ones, each containing 2 monospermous, quadrangular seeds. M. tinctoria, Roxb., is a climbing shrub with leaves opposite, ovate, keeled; petioles very short; flower and fruit like the foregoing species. Habitat: In Luzon and, especially the M. tinctoria, in Malinta, Calauan and Tanauan.",
     uses: 'test',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/mulberry.png',
+    image_path: 'assets/plants/Mulberry.png',
   ),
   Plant(
     eng_name: 'Onion',
@@ -469,7 +471,7 @@ final allPlants = [
         'The garlic and the onion are used to excess as condiments in Philippine as well as Spanish cooking. Both are difficult of digestion and communicate a very disagreeable odor to the breath, intolerable to those who are unaccustomed to it. Garlic possesses the singular property, familiar to many students and soldiers, of inducing a transient fever if introduced within the anus. When bruised and applied to the skin it has a counter-irritant action which makes it useful in the treatment of rheumatism, but the odor is so disagreeable that it is not worthwhile to use it for that purpose when we have so many other medicines which produce the same effect without being objectionable. It is also used locally for the bites of venomous animals.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/onion.png',
+    image_path: 'assets/plants/Onion.png',
   ),
   Plant(
     eng_name: 'Oregano',
@@ -481,7 +483,7 @@ final allPlants = [
         'Leaves opposite, nearly sessile, cordate, obtuse, downy and very fleshy. Flowers in a quadrangular raceme, each group of these flowerets having a concave scale at the base. Calyx bell-shaped, 2-lipped; the upper lip longer and entire; the lower with 4 narrow teeth. Corolla a pale violet, 5 times longer than the calyx. Stamens didynamous, straight, longer than the corolla. Style bifid. Seeds 4.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/oregano.png',
+    image_path: 'assets/plants/Oregano.png',
   ),
   Plant(
     eng_name: 'Painted Nettle',
@@ -504,7 +506,7 @@ final allPlants = [
         'Radish, also known as bana in Ayurveda, is a pungent vegetable with a hot and pungent taste that balances all three doshas and treats related disorders. It is used in treating dyspnoea, haemorrhoids, weakness, gastrointestinal, kidney, and eye-related disorders, respiratory problems, and excretion disorders. Radish\'s leaves promote digestion and enhance taste perception. Its nutritional profile is excellent, with 19 calories, 0.8-gram protein, 4 grams of carbs, 1.9 grams of fiber, and virtually no fat. Radish is rich in vitamin C, B vitamins, and minerals, making it a perfect vegetable for a healthy diet.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/radish.png',
+    image_path: 'assets/plants/Radish.png',
   ),
   Plant(
     eng_name: 'Rangoon Creeper',
@@ -552,7 +554,7 @@ final allPlants = [
         'This plant is highly valued in Filipinos for its infusion, which is used as an eye-wash for catarrhal conjunctivitis and as an aromatic bath for women. It is also used as a stimulant and carminative, but is rarely used internally. The plant contains a large percentage of essential oil, which gives it its pleasant odor and is said to arrest hair falling. It is colorless and liquid when fresh but dark and viscid over time. It combines freely with alcohol and has a density of 0.885.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/rosemary.png',
+    image_path: 'assets/plants/Rosemary.png',
   ),
   Plant(
     eng_name: 'Rosewood',
@@ -564,7 +566,7 @@ final allPlants = [
         'Red sandalwood, a building material, is used for building purposes and medicine as an astringent. It is also used as a mouth wash in toothache and a solvent for vesical calculi. All three species yield a resin known in pharmacy as "kino." The true gum kino is produced by P. marsupium, Roxb., but the Philippine product, especially the second and third species, has been exported to Europe under the name "red astringent gum" or "kino." The bark is the part that produces it, and the extractive process is employed in Madras. Flückiger and Hanbury found no difference between the kino of P. marsupium, Roxb. and that of P. erinaceous, Poir. Kino is used in internal medicine for its astringent effect in chronic diarrhea, leucorrhea, blenorrhea, and hemorrhages. The dose of the powder is 1-4 grams, and the alcoholic tincture is 5-10 grams.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/rosewood.png',
+    image_path: 'assets/plants/Rosewood.png',
   ),
   Plant(
     eng_name: 'Sage',
@@ -576,7 +578,7 @@ final allPlants = [
         'Sage is a versatile herb with antiseptic, antimicrobial, anti-mutagenic, and antibacterial properties. It aids in digestion of fatty meats, promoting normal menstruation and treating menopausal symptoms. Sage also balances hormones, promoting normal menstruation and treating menopausal symptoms. It is used to treat sore throats, with a gargle being the most effective remedy. Sage infusion can speed up wound healing by soaking a cotton pad in sage infusion. Sage essential oil also improves blood circulation to the scalp and roots of hair, encouraging thick hair growth. However, it can reduce milk production in nursing mothers and should be avoided during breastfeeding. Sage Throat Spray and Sage Gargle for Sore Throat are two remedies that can be used to treat sore throats. Sage Throat Spray is made by steeping dried or fresh sage leaves in boiling water, while Sage Gargle is made by combining dried sage leaves, boiling water, goldenseal root powder, cayenne infusion, and apple cider vinegar. Both remedies have their own benefits and should be used in moderation.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/sage.png',
+    image_path: 'assets/plants/Sage.png',
   ),
   Plant(
     eng_name: 'Senna Alata',
@@ -600,7 +602,7 @@ final allPlants = [
         'The leaves of the plant are emollient and are used in the Philippines, India, and the Southern States of North America to make poultices as a substitute for linseed. The decoction is prescribed internally as an emmenagogue and demulcent, and is known to stimulate hair growth. The seeds are emollient, laxative, diuretic, and emmenagogue, with an oil content. They are used as a condiment in some countries and are effective in treating amenorrhea. The seeds contain up to 45% of the oil known in the Philippines as lana, an Ilocano word meaning "oil." It is bright yellow, viscid, and does not easily become rancid. In Japan and India, it is used as food and cosmetic, perfumed with various essences. In America, it is given in doses of 30-60 grams and can be substituted for olive oil in pharmacy, especially in Linimentum Calcis prepared for burns.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/sesame.png',
+    image_path: 'assets/plants/Sesame.png',
   ),
   Plant(
     eng_name: 'Shiny Bush',
@@ -618,11 +620,12 @@ final allPlants = [
     eng_name: 'Soybean',
     tag_name: 'Soya',
     sci_name: 'Glycine max',
-    description: 'test',
+    description:
+        'A climbing shrub, 6–9° high, whose stem is thickly set with long, opposite thorns. Leaves in stars of 3, oblong, acute, entire, glabrous. Petioles very short. Flowers white, veined with red, in axillary spikes. Calyx very long, nearly cylindrical, 5-toothed. Corolla, 5 petals, inserted between the teeth of the calyx. Stamens 10, inserted on the calyx-tube, shorter than the corolla, arranged in 2 series, 5 higher than the rest. Style the same length as the stamens, united throughout nearly its entire length with the wall of the calyx-tube from which it separates near the stigma. Stigma rather bulky. Fruit 1′ long, ovoid, 5 sharp ridges in the woody, fragile, mahogany-colored pericarp, which contains a pointed kernel at one end.Habitat: San Mateo, and along the shores of Luzon. Blooms in May.',
     uses: 'test',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/soybean.png',
+    image_path: 'assets/plants/Soybean.png',
   ),
   Plant(
     eng_name: 'Star Anise',
@@ -640,11 +643,12 @@ final allPlants = [
     eng_name: 'Taro',
     tag_name: 'Gabi',
     sci_name: 'Colocasia esculenta',
-    description: 'test',
+    description:
+        "The taro (Colocasia esculenta (L.) Schott) is an herbaceous perennial, mostly cultivated as an annual. It grows up to a height of 2 m. Its adventicious and shallow root system arises from the corm, a swollen underground stem that contains high levels of fine starch and weighs up to 1 kg. Corms are usually cylindrical and 30 cm long x 15 cm diameter, but they are highly variable in size, shape and colour. The leaves are 30-90 cm long and 20-60 cm broad, and are borne in crowns at the end of upright, thick, succulent, 0.9-2 m high petioles. The inflorescence is a large pale green spathe (Ecoport, 2010; Safo Kantaka, 2004). There are hundreds of taro cultivars. Dasheen taros are wetland cultivars, mainly cultivated in Asia and the Pacific Islands. They have a single and large mealy corm (Ecoport, 2010). Eddoe taros are dryland cultivars, mainly cultivated in Africa and the Caribbean. They bear numerous smaller corms (cormels) around the central corm and have a firmer structure and a nutty taste (Ecoport, 2010; Onwueme et al., 1994). Taro yields high quantities of energy and protein per ha (Göhl, 1982). It is mainly cultivated for home consumption in Asia, Africa, Papua New Guinea and the Pacific Islands. The soft white-fleshed taro corms, usually called taro roots, are highly valued as a staple food and are eaten boiled, fried, roasted, fermented or turned into flour ('fufu' in West Africa), bread and biscuits. Low-grade corms are also used for alcohol production. Taro petioles and leaves are used as vegetable (Ecoport, 2010; Safo Kantaka, 2004; Wilson et al., 1996).Taro corms and peelings are fed to livestock, mainly cattle and pigs. In Vietnam, some taro varieties are used only for pigs (Ngo Huu Toan et al., 2010). In Hawaii, taro tops are used to make silage (Onwueme et al., 1994). Distribution Taro is native to India and the Malay peninsula, and is now cultivated throughout tropical and subtropical Asia, Pacific Islands (including northern Australia), the Caribbean and tropical Africa (from East to West). It was recently introduced in the southern USA (Onwueme et al., 1994; Ecoport, 2010).Optimal growth conditions are temperatures of 21-28°C, with an annual rainfall between 1800 and 2700 mm. Taro is found from sea-level up to an altitude of 1000 m or, close to the equator, 2300-2700 m (Ecoport, 2010; Wilson et al., 1996). It tolerates a wide range of sunlight conditions, from full sun to shaded conditions in intercropping systems with coconut, coffee or cocoa trees (Safo Kantaka, 2004). Wetland cultivars perform best on heavy soil with high-moisture-holding capacity, and pH ranging from 5.5 to 6.5. They tolerate flooded conditions and some varieties can grow under water (Ecoport, 2010; Safo Kantaka, 2004). Dryland cultivars prefer well-drained, deep, loamy and friable soils. They are drought hardy and tolerate waterlogged conditions and slight frosts (Ecoport, 2010; Onwueme et al., 1994; Wilson et al., 1996).",
     uses: 'test',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/taro.png',
+    image_path: 'assets/plants/Taro.png',
   ),
   Plant(
     eng_name: 'Thorny Amaranth',
@@ -668,13 +672,14 @@ final allPlants = [
         'This plant must not be confounded with Curcuma longa, L., whose tuber is also frequently called saffron (azafrán), and is used to color food. The flower is the part employed as a condiment coloring the food yellow. Some use them internally in doses of 4 grams to cure icterus. The leaves coagulate milk. The seeds are purgative in dose of 8–16 grams, bruised and taken in emulsion, or 15–30 grams in decoction.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/turmeric.png',
+    image_path: 'assets/plants/Turmeric.png',
   ),
   Plant(
     eng_name: 'Vetiver Grass',
     tag_name: 'Moras',
     sci_name: 'Chrysopogon Zizanioides',
-    description: 'test',
+    description:
+        'Vetiver for Hair: Rich in antioxidants, vetiver helps alleviate dull hair and dry scalp. It also takes care of irritation and dandruff. It promotes the production of collagen, which gives hair structure strength. Uses for Vetiver Plants: The following list includes some excellent and simple applications for vetiver plants. • Fragrances are made from the roots of vetiver.',
     uses: 'test',
     benefits: 'test',
     process: 'test',
