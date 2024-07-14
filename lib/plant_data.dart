@@ -605,7 +605,8 @@ final List<Plant> allPlants = [
     eng_name: 'Mulberry',
     tag_name: 'Moras',
     sci_name: 'Morus rubra',
-    description: 'test',
+    description:
+        "A small tree 11 or more feet high, branches opposite, quadrate at the extremities. Leaves opposite, oval, oblong, smooth, entire, glabrous. Petioles very short, with 2 broad, lanceolate stipules curved outward. Flowers white, opposite the leaves, fixed on globose, solitary receptacles from which spring the flowerets. Calyx proper, very short, monophyllous, a lanceolate leaflet springing from the border. Corolla tubular, woolly inside about the middle, with 5 lobules. Stamens 5, inserted on the walls of the corolla. Anthers thin, incumbent. Pistil somewhat longer than the corolla. Stigma cleft in 2 lamina. Fruit: the receptacle of the flowerets ripens to a globe bristling with the remains of the calyces, like a berry covered with many smaller ones, each containing 2 monospermous, quadrangular seeds. M. tinctoria, Roxb., is a climbing shrub with leaves opposite, ovate, keeled; petioles very short; flower and fruit like the foregoing species. Habitat: In Luzon and, especially the M. tinctoria, in Malinta, Calauan and Tanauan.",
     uses: 'test',
     benefits: 'test',
     process: 'test',
@@ -826,7 +827,8 @@ final List<Plant> allPlants = [
     eng_name: 'Soybean',
     tag_name: 'Soya',
     sci_name: 'Glycine max',
-    description: 'test',
+    description:
+        'A climbing shrub, 6–9° high, whose stem is thickly set with long, opposite thorns. Leaves in stars of 3, oblong, acute, entire, glabrous. Petioles very short. Flowers white, veined with red, in axillary spikes. Calyx very long, nearly cylindrical, 5-toothed. Corolla, 5 petals, inserted between the teeth of the calyx. Stamens 10, inserted on the calyx-tube, shorter than the corolla, arranged in 2 series, 5 higher than the rest. Style the same length as the stamens, united throughout nearly its entire length with the wall of the calyx-tube from which it separates near the stigma. Stigma rather bulky. Fruit 1′ long, ovoid, 5 sharp ridges in the woody, fragile, mahogany-colored pericarp, which contains a pointed kernel at one end.Habitat: San Mateo, and along the shores of Luzon. Blooms in May.',
     uses: 'test',
     benefits: 'test',
     process: 'test',
@@ -856,7 +858,8 @@ final List<Plant> allPlants = [
     eng_name: 'Taro',
     tag_name: 'Gabi',
     sci_name: 'Colocasia esculenta',
-    description: 'test',
+    description:
+        "The taro (Colocasia esculenta (L.) Schott) is an herbaceous perennial, mostly cultivated as an annual. It grows up to a height of 2 m. Its adventicious and shallow root system arises from the corm, a swollen underground stem that contains high levels of fine starch and weighs up to 1 kg. Corms are usually cylindrical and 30 cm long x 15 cm diameter, but they are highly variable in size, shape and colour. The leaves are 30-90 cm long and 20-60 cm broad, and are borne in crowns at the end of upright, thick, succulent, 0.9-2 m high petioles. The inflorescence is a large pale green spathe (Ecoport, 2010; Safo Kantaka, 2004). There are hundreds of taro cultivars. Dasheen taros are wetland cultivars, mainly cultivated in Asia and the Pacific Islands. They have a single and large mealy corm (Ecoport, 2010). Eddoe taros are dryland cultivars, mainly cultivated in Africa and the Caribbean. They bear numerous smaller corms (cormels) around the central corm and have a firmer structure and a nutty taste (Ecoport, 2010; Onwueme et al., 1994). Taro yields high quantities of energy and protein per ha (Göhl, 1982). It is mainly cultivated for home consumption in Asia, Africa, Papua New Guinea and the Pacific Islands. The soft white-fleshed taro corms, usually called taro roots, are highly valued as a staple food and are eaten boiled, fried, roasted, fermented or turned into flour ('fufu' in West Africa), bread and biscuits. Low-grade corms are also used for alcohol production. Taro petioles and leaves are used as vegetable (Ecoport, 2010; Safo Kantaka, 2004; Wilson et al., 1996).Taro corms and peelings are fed to livestock, mainly cattle and pigs. In Vietnam, some taro varieties are used only for pigs (Ngo Huu Toan et al., 2010). In Hawaii, taro tops are used to make silage (Onwueme et al., 1994). Distribution Taro is native to India and the Malay peninsula, and is now cultivated throughout tropical and subtropical Asia, Pacific Islands (including northern Australia), the Caribbean and tropical Africa (from East to West). It was recently introduced in the southern USA (Onwueme et al., 1994; Ecoport, 2010).Optimal growth conditions are temperatures of 21-28°C, with an annual rainfall between 1800 and 2700 mm. Taro is found from sea-level up to an altitude of 1000 m or, close to the equator, 2300-2700 m (Ecoport, 2010; Wilson et al., 1996). It tolerates a wide range of sunlight conditions, from full sun to shaded conditions in intercropping systems with coconut, coffee or cocoa trees (Safo Kantaka, 2004). Wetland cultivars perform best on heavy soil with high-moisture-holding capacity, and pH ranging from 5.5 to 6.5. They tolerate flooded conditions and some varieties can grow under water (Ecoport, 2010; Safo Kantaka, 2004). Dryland cultivars prefer well-drained, deep, loamy and friable soils. They are drought hardy and tolerate waterlogged conditions and slight frosts (Ecoport, 2010; Onwueme et al., 1994; Wilson et al., 1996).",
     uses: 'test',
     benefits: 'test',
     process: 'test',
@@ -902,7 +905,8 @@ final List<Plant> allPlants = [
     eng_name: 'Vetiver Grass',
     tag_name: 'Moras',
     sci_name: 'Chrysopogon Zizanioides',
-    description: 'test',
+    description:
+        'Vetiver for Hair: Rich in antioxidants, vetiver helps alleviate dull hair and dry scalp. It also takes care of irritation and dandruff. It promotes the production of collagen, which gives hair structure strength. Uses for Vetiver Plants: The following list includes some excellent and simple applications for vetiver plants. • Fragrances are made from the roots of vetiver.',
     uses: 'test',
     benefits: 'test',
     process: 'test',
