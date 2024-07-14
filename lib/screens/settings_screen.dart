@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:gg_app/language_manager.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -63,7 +65,9 @@ class SettingsScreen extends StatelessWidget {
                 Expanded(
                   child: ListView(
                     children: [
-                      _buildSettingsButton(context, 'Language'),
+                      _buildSettingsButton(context, 'Language', () {
+                        _showLanguageDialog(context);
+                      }),
                       _buildSettingsButton(
                         context,
                         'Terms & Conditions',
@@ -140,19 +144,170 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  void _showLanguageDialog(BuildContext context) {
+    bool selectedLanguage = context.read<LanguageManager>().isEnglish;
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          ),
+          title: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.green),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Select Language',
+              style: TextStyle(fontFamily: 'Montserrat'),
+            ),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title:
+                    Text('English', style: TextStyle(fontFamily: 'Montserrat')),
+                leading: Radio<bool>(
+                  value: true,
+                  groupValue: selectedLanguage,
+                  onChanged: (bool? value) {
+                    selectedLanguage = value!;
+                    (context as Element).markNeedsBuild();
+                  },
+                ),
+              ),
+              ListTile(
+                title:
+                    Text('Tagalog', style: TextStyle(fontFamily: 'Montserrat')),
+                leading: Radio<bool>(
+                  value: false,
+                  groupValue: selectedLanguage,
+                  onChanged: (bool? value) {
+                    selectedLanguage = value!;
+                    (context as Element).markNeedsBuild();
+                  },
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              child: Text(
+                'Close',
+                style: TextStyle(fontFamily: 'Karla'),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.grey,
+              ),
+            ),
+            TextButton(
+              child: Text(
+                'Apply',
+                style: TextStyle(fontFamily: 'Karla'),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+                _confirmLanguageChange(context, selectedLanguage);
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.green,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _confirmLanguageChange(BuildContext context, bool isEnglish) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          ),
+          title: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.green),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Confirm Language Change',
+              style: TextStyle(fontFamily: 'Montserrat'),
+            ),
+          ),
+          content: Text(
+            'Are you sure you want to change the language?',
+            style: TextStyle(fontFamily: 'Montserrat'),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(
+                'Cancel',
+                style: TextStyle(fontFamily: 'Karla'),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.grey,
+              ),
+            ),
+            TextButton(
+              child: Text(
+                'Yes',
+                style: TextStyle(fontFamily: 'Karla'),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+                context.read<LanguageManager>().switchLanguage();
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.green,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _showDialog(BuildContext context, String title, String content) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(
-            title,
-            style: TextStyle(fontFamily: 'Montserrat'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          ),
+          title: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.green),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              title,
+              style: TextStyle(fontFamily: 'Montserrat'),
+            ),
           ),
           content: SingleChildScrollView(
             child: Text(
               content,
               style: TextStyle(fontFamily: 'Montserrat'),
+              textAlign: TextAlign.justify,
             ),
           ),
           actions: <Widget>[
@@ -166,7 +321,7 @@ class SettingsScreen extends StatelessWidget {
               },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.grey,
               ),
             ),
           ],
@@ -177,28 +332,17 @@ class SettingsScreen extends StatelessWidget {
 
   String _termsContent() {
     return '''
-1. Introduction
-Welcome to GreenGem, your ultimate herbal companion app. These terms and conditions govern your use of the GreenGem mobile application. By accessing or using the app, you agree to comply with these terms.
+        Welcome to GreenGem! By accessing and using our app, you agree to the following terms and conditions:
 
-2. Content and Information
-The content provided in the GreenGem app, including, articles, tutorials, images, and videos, is for informational purposes only. We strive to ensure the accuracy and reliability of the information provided in the app. However, we do not guarantee the completeness or correctness of any content.
+        1. Content Accuracy: GreenGem provides information on herbal plants for educational purposes. While we strive for accuracy, we cannot guarantee the completeness or reliability of the information.
 
-Plant information and recommendations are based on research and expert knowledge. Users should exercise their judgment and consider local conditions when applying any advice provided in the app. The GreenGem app does not constitute medical advice, and we disclaim any liability for any loss or damage arising from the use of the information provided in the app. Users are encouraged to exercise caution and seek professional medical guidance when making decisions about their health and wellness.
+        2. Medical Advice: The information on GreenGem is not a substitute for professional medical advice. Always consult healthcare professionals before using herbal remedies.
 
-3. Usage Restrictions
-You agree not to misuse the GreenGem app or use it for any unlawful purpose. You may not modify, adapt, sublicense, translate, sell, or exploit any part of the app without our prior written consent.
+        3. User Responsibility: Users are responsible for their actions and decisions based on the information provided. GreenGem is not liable for any consequences arising from the use of our content.
 
-4. Privacy Policy
-The GreenGem App does not collect, store, or use any personal information from its users. As our App does not require user accounts, we do not collect names, addresses, phone numbers, email addresses, or any other personally identifiable information.
+        4. Privacy: We value your privacy and handle your personal data in accordance with our Privacy Policy.
 
-5. Termination
-We reserve the right to suspend or terminate your access to the GreenGem app at any time, without prior notice or liability, for any reason.
-
-6. Changes to Terms
-We may update or revise these terms and conditions from time to time. The revised version will be effective upon posting on the app. Your continued use of the GreenGem app after any changes constitutes acceptance of those changes.
-
-7. Contact Us
-If you have any questions or concerns about these terms and conditions, please contact us at greengem@gmail.com
-    ''';
+        5. Changes: GreenGem may update these terms and conditions at any time. Continued use of the app implies acceptance of the revised terms.
+        ''';
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gg_app/language_manager.dart';
 import 'package:gg_app/models/plants.dart';
 import 'package:gg_app/plant_data.dart';
+import 'package:provider/provider.dart';
 import 'plant_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'settings_screen.dart';
@@ -54,7 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PlantScreen(plant: plant),
+        builder: (context) => PlantScreen(
+          plant: plant,
+          isEnglish:
+              Provider.of<LanguageManager>(context, listen: false).isEnglish,
+        ),
       ),
     );
   }
@@ -382,16 +388,24 @@ class CategoryButton extends StatelessWidget {
 class PlantCard extends StatelessWidget {
   final Plant plant;
 
-  const PlantCard({required this.plant});
+  const PlantCard({
+    required this.plant,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final languageManager = Provider.of<LanguageManager>(context);
+    bool isEnglish = languageManager.isEnglish;
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => PlantScreen(plant: plant),
+            builder: (context) => PlantScreen(
+              plant: plant,
+              isEnglish: isEnglish,
+            ),
           ),
         );
       },
@@ -417,7 +431,7 @@ class PlantCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: Text(
-                  plant.eng_name,
+                  isEnglish ? plant.eng_name : plant.tag_name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 13,
