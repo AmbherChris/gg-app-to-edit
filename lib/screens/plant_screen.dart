@@ -81,7 +81,7 @@ class _PlantScreenState extends State<PlantScreen> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(widget.plant.image_path),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.scaleDown,
                   ),
                   boxShadow: [
                     BoxShadow(

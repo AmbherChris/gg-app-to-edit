@@ -352,7 +352,7 @@ final allPlants = [
         'The flower is the most popular and beloved of any in the Philippines (and is commonly referred to as the national flower). In decoction it is used as an eye-wash in catarrhal conjunctivitis. In India the flowers and the leaves have a merited reputation as a lactifuge; 2 handfuls of flowers bruised and applied without moistening, once or twice a day, sometimes checks the secretion of the milk within 24 hours, but generally 2 or 3 days are required for a complete effect.',
     benefits: 'test',
     process: 'test',
-    image_path: 'assets/plants/jasmine.png',
+    image_path: 'assets/plants/Jasmine.png',
   ),
   Plant(
     eng_name: 'Jujube Plum',
