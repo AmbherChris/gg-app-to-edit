@@ -76,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final languageManager = Provider.of<LanguageManager>(context);
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 0, 0),
       body: Stack(
@@ -111,9 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Welcome to\n',
+                          text: '${languageManager.welcomeText}\n',
                           style: TextStyle(
                             color: Colors.white,
+                            fontWeight: FontWeight.w700,
                             fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontFamily: 'Montserrat',
                           ),
@@ -159,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onChanged: searchPlants,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search),
-                            hintText: 'Search...',
+                            hintText: languageManager.searchHint,
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
@@ -276,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
-                          label: 'All plants',
+                          label: languageManager.allPlants,
                           isSelected: selectedCategory == 'All plants',
                           onTap: filterPlants,
                         ),
@@ -287,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
-                          label: 'Culinary Herbs',
+                          label: languageManager.culinaryHerbs,
                           isSelected: selectedCategory == 'Culinary Herbs',
                           onTap: filterPlants,
                         ),
@@ -298,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
-                          label: 'Herbal Teas',
+                          label: languageManager.herbalTeas,
                           isSelected: selectedCategory == 'Herbal Teas',
                           onTap: filterPlants,
                         ),

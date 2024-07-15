@@ -5,6 +5,7 @@ import 'package:gg_app/language_manager.dart';
 class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final languageManager = Provider.of<LanguageManager>(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
@@ -46,7 +47,9 @@ class SettingsScreen extends StatelessWidget {
                       Expanded(
                         child: Center(
                           child: Text(
-                            'Settings',
+                            languageManager.isEnglish
+                                ? 'Settings'
+                                : 'Mga Setting',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize:
@@ -65,16 +68,22 @@ class SettingsScreen extends StatelessWidget {
                 Expanded(
                   child: ListView(
                     children: [
-                      _buildSettingsButton(context, 'Language', () {
-                        _showLanguageDialog(context);
+                      _buildSettingsButton(context,
+                          languageManager.isEnglish ? 'Language' : 'Wika', () {
+                        _showLanguageDialog(context, languageManager.isEnglish);
                       }),
                       _buildSettingsButton(
                         context,
-                        'Terms & Conditions',
+                        languageManager.isEnglish
+                            ? 'Terms & Conditions'
+                            : 'Mga Tuntunin at Kundisyon',
                         () => _showDialog(
                           context,
-                          'Terms and Conditions',
-                          _termsContent(),
+                          languageManager.isEnglish
+                              ? 'Terms and Conditions'
+                              : 'Mga Tuntunin at Kundisyon',
+                          _termsContent(languageManager.isEnglish),
+                          languageManager.isEnglish,
                         ),
                       ),
                       _buildSettingsButton(
@@ -84,15 +93,19 @@ class SettingsScreen extends StatelessWidget {
                           context,
                           'Disclaimer',
                           'While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.',
+                          languageManager.isEnglish,
                         ),
                       ),
                       _buildSettingsButton(
                         context,
-                        'About',
+                        languageManager.isEnglish ? 'About' : 'Tungkol sa amin',
                         () => _showDialog(
                           context,
-                          'About',
+                          languageManager.isEnglish
+                              ? 'About'
+                              : 'Tungkol sa amin',
                           'GreenGem is the ultimate destination for herbal plant enthusiasts, offering valuable insights into the diverse world of botanical wonders. Our platform provides detailed information on various herbs, empowering users to explore their properties and applications with confidence. Join us on a journey to holistic wellness and reconnect with nature\'s healing power. Contact us for inquiries or feedback.',
+                          languageManager.isEnglish,
                         ),
                       ),
                     ],
@@ -144,8 +157,8 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  void _showLanguageDialog(BuildContext context) {
-    bool selectedLanguage = context.read<LanguageManager>().isEnglish;
+  void _showLanguageDialog(BuildContext context, bool isEnglish) {
+    bool selectedLanguage = isEnglish;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -160,7 +173,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10.0),
             child: Text(
-              'Select Language',
+              isEnglish ? 'Select Language' : 'Piliin ang Wika',
               style: TextStyle(fontFamily: 'Montserrat'),
             ),
           ),
@@ -196,7 +209,7 @@ class SettingsScreen extends StatelessWidget {
           actions: [
             TextButton(
               child: Text(
-                'Close',
+                isEnglish ? 'Close' : 'Isara',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
@@ -209,7 +222,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             TextButton(
               child: Text(
-                'Apply',
+                isEnglish ? 'Apply' : 'Gamitin',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
@@ -227,7 +240,8 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  void _confirmLanguageChange(BuildContext context, bool isEnglish) {
+  void _confirmLanguageChange(BuildContext context, bool selectedLanguage) {
+    bool isEnglish = selectedLanguage;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -242,18 +256,22 @@ class SettingsScreen extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10.0),
             child: Text(
-              'Confirm Language Change',
+              isEnglish
+                  ? 'Confirm Language Change'
+                  : 'Kumpirmahin ang Pagbabago ng Wika',
               style: TextStyle(fontFamily: 'Montserrat'),
             ),
           ),
           content: Text(
-            'Are you sure you want to change the language?',
+            isEnglish
+                ? 'Are you sure you want to change the language?'
+                : 'Sigurado ka bang gusto mong baguhin ang wika?',
             style: TextStyle(fontFamily: 'Montserrat'),
           ),
           actions: <Widget>[
             TextButton(
               child: Text(
-                'Cancel',
+                isEnglish ? 'Cancel' : 'Ikansela',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
@@ -266,12 +284,12 @@ class SettingsScreen extends StatelessWidget {
             ),
             TextButton(
               child: Text(
-                'Yes',
+                isEnglish ? 'Yes' : 'Oo',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
-                context.read<LanguageManager>().switchLanguage();
+                context.read<LanguageManager>().setLanguage(selectedLanguage);
               },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -284,7 +302,8 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  void _showDialog(BuildContext context, String title, String content) {
+  void _showDialog(
+      BuildContext context, String title, String content, bool isEnglish) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -303,17 +322,14 @@ class SettingsScreen extends StatelessWidget {
               style: TextStyle(fontFamily: 'Montserrat'),
             ),
           ),
-          content: SingleChildScrollView(
-            child: Text(
-              content,
-              style: TextStyle(fontFamily: 'Montserrat'),
-              textAlign: TextAlign.justify,
-            ),
+          content: Text(
+            content,
+            style: TextStyle(fontFamily: 'Montserrat'),
           ),
-          actions: <Widget>[
+          actions: [
             TextButton(
               child: Text(
-                'Close',
+                isEnglish ? 'Close' : 'Isara',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
@@ -321,7 +337,7 @@ class SettingsScreen extends StatelessWidget {
               },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.grey,
+                backgroundColor: Colors.green,
               ),
             ),
           ],
@@ -330,19 +346,41 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  String _termsContent() {
-    return '''
+  String _termsContent(bool isEnglish) {
+    return isEnglish
+        ? '''
         Welcome to GreenGem! By accessing and using our app, you agree to the following terms and conditions:
 
-        1. Content Accuracy: GreenGem provides information on herbal plants for educational purposes. While we strive for accuracy, we cannot guarantee the completeness or reliability of the information.
+        1. Introduction: Welcome to GreenGem, your ultimate herbal companion app. These terms and conditions govern your use of the GreenGem mobile application. By accessing or using the app, you agree to comply with these terms.
 
-        2. Medical Advice: The information on GreenGem is not a substitute for professional medical advice. Always consult healthcare professionals before using herbal remedies.
+        2. Content and Information: The content provided in the GreenGem app, including, articles, tutorials, images, and videos, is for informational purposes only.\n\nWe strive to ensure the accuracy and reliability of the information provided in the app. However, we do not guarantee the completeness or correctness of any content.\n\nPlant information and recommendations are based on research and expert knowledge. Users should exercise their judgment and consider local conditions when applying any advice provided in the app.\n\nThe GreenGem app does not constitute medical advice, and we disclaim any liability for any loss or damage arising from the use of the information provided in the app. Users are encouraged to exercise caution and seek professional medical guidance when making decisions about their health and wellness.\n\n'
 
-        3. User Responsibility: Users are responsible for their actions and decisions based on the information provided. GreenGem is not liable for any consequences arising from the use of our content.
+        3. Usage Restrictions: You agree not to misuse the GreenGem app or use it for any unlawful purpose.\n\nYou may not modify, adapt, sublicense, translate, sell, or exploit any part of the app without our prior written consent.
 
-        4. Privacy: We value your privacy and handle your personal data in accordance with our Privacy Policy.
+        4. Privacy Policy: The GreenGem App does not collect, store, or use any personal information from its users. As our App does not require user accounts, we do not collect names, addresses, phone numbers, email addresses, or any other personally identifiable information.
 
-        5. Changes: GreenGem may update these terms and conditions at any time. Continued use of the app implies acceptance of the revised terms.
+        5. Termination: We reserve the right to suspend or terminate your access to the GreenGem app at any time, without prior notice or liability, for any reason.
+
+        6. Changes to Terms: We may update or revise these terms and conditions from time to time. The revised version will be effective upon posting on the app. Your continued use of the GreenGem app after any changes constitutes acceptance of those changes.
+
+        7. Contact Us: If you have any questions or concerns about these terms, please contact us at greengemapp@gmail.com.
+        '''
+        : '''
+        Maligayang pagdating sa GreenGem! Sa pamamagitan ng pag-access at paggamit sa aming app, sumasang-ayon ka sa mga sumusunod na tuntunin at kundisyon:
+
+        1. Panimula: Maligayang pagdating sa GreenGem, ang iyong pinakamahusay na kasamang herbal na app. Ang mga tuntunin at kundisyon na ito ay namamahala sa iyong paggamit ng GreenGem mobile application. Sa pamamagitan ng pag-access o paggamit sa app, sumasang-ayon kang sumunod sa mga tuntuning ito.
+
+        2. Nilalaman at Impormasyon: Ang nilalamang ibinigay sa GreenGem app, kabilang ang, mga artikulo, tutorial, larawan, at video, ay para sa mga layuning pang-impormasyon lamang.\n\nSinisikap naming tiyakin ang katumpakan at pagiging maaasahan ng impormasyong ibinigay sa app. Gayunpaman, hindi namin ginagarantiya ang pagiging kumpleto o kawastuhan ng anumang nilalaman.\n\nAng impormasyon at rekomendasyon ng halaman ay batay sa pananaliksik at kaalaman ng eksperto. Dapat gamitin ng mga user ang kanilang paghuhusga at isaalang-alang ang mga lokal na kundisyon kapag nag-aaplay ng anumang payo na ibinigay sa app.\n\nAng GreenGem app ay hindi bumubuo ng medikal na payo, at itinatanggi namin ang anumang pananagutan para sa anumang pagkawala o pinsalang dulot ng paggamit ng impormasyong ibinigay sa app. Hinihikayat ang mga user na mag-ingat at humingi ng propesyonal na medikal na patnubay kapag gumagawa ng mga desisyon tungkol sa kanilang kalusugan at kagalingan.\n\n'
+
+        3. Mga Paghihigpit sa Paggamit: Sumasang-ayon kang huwag gamitin sa maling paraan ang GreenGem app o gamitin ito para sa anumang labag sa batas na layunin.\n\nHindi mo maaaring baguhin, iakma, i-sublicense, isalin, ibenta, o pagsamantalahan ang anumang bahagi ng app nang wala ang aming paunang nakasulat na pahintulot.
+
+        4. Patakaran sa Privacy: Ang GreenGem App ay hindi nangongolekta, nag-iimbak, o gumagamit ng anumang personal na impormasyon mula sa mga gumagamit nito. Dahil hindi nangangailangan ang aming App ng mga user account, hindi kami nangongolekta ng mga pangalan, address, numero ng telepono, email address, o anumang iba pang impormasyong nagbibigay ng personal na pagkakakilanlan.
+
+        5. Pagwawakas: Inilalaan namin ang karapatang suspindihin o wakasan ang iyong pag-access sa GreenGem app anumang oras, nang walang paunang abiso o pananagutan, para sa anumang kadahilanan.
+
+        6. Mga Pagbabago sa Mga Tuntunin: Maaari naming i-update o baguhin ang mga tuntunin at kundisyon na ito paminsan-minsan. Magiging epektibo ang binagong bersyon sa pag-post sa app. Ang iyong patuloy na paggamit ng GreenGem app pagkatapos ng anumang mga pagbabago ay bumubuo ng pagtanggap sa mga pagbabagong iyon.
+
+        7. Makipag-ugnayan sa Amin: Kung mayroon kang anumang mga tanong o alalahanin tungkol sa mga tuntuning ito, mangyaring makipag-ugnayan sa amin sa greengemapp@gmail.com.
         ''';
   }
 }
