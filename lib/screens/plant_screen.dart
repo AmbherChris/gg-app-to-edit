@@ -171,11 +171,17 @@ class _PlantScreenState extends State<PlantScreen> {
                             SizedBox(height: 20),
                             Text(
                               _contentState == ContentState.description
-                                  ? 'Description'
+                                  ? (widget.isEnglish
+                                      ? 'Description'
+                                      : 'Paglalarawan')
                                   : _contentState ==
                                           ContentState.usesAndBenefits
-                                      ? 'Uses & Benefits'
-                                      : 'Process',
+                                      ? (widget.isEnglish
+                                          ? 'Uses & Benefits'
+                                          : 'Mga Paggamit at Benepisyo')
+                                      : (widget.isEnglish
+                                          ? 'Process'
+                                          : 'Proseso'),
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 25,
@@ -189,7 +195,9 @@ class _PlantScreenState extends State<PlantScreen> {
                                 children: [
                                   SizedBox(height: 15),
                                   Text(
-                                    'Tagalog name: ${widget.plant.tag_name}',
+                                    widget.isEnglish
+                                        ? 'Tagalog name: ${widget.plant.tag_name}'
+                                        : 'English name: ${widget.plant.eng_name}',
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Montserrat',
@@ -235,7 +243,9 @@ class _PlantScreenState extends State<PlantScreen> {
                                   ),
                                   SizedBox(height: 25),
                                   Text(
-                                    'Benefits',
+                                    widget.isEnglish
+                                        ? 'Benefits'
+                                        : 'Mga Benepisyo',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 25,
@@ -273,55 +283,70 @@ class _PlantScreenState extends State<PlantScreen> {
                               ),
                             SizedBox(height: 20),
                             if (_contentState != ContentState.process)
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                              Column(
                                 children: [
                                   if (_contentState == ContentState.description)
-                                    ElevatedButton(
-                                      onPressed: _nextState,
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.green,
-                                        foregroundColor: Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 32, vertical: 16),
-                                        shadowColor:
-                                            Colors.black.withOpacity(0.3),
-                                        elevation: 5,
-                                      ),
-                                      child: Text(
-                                        'Uses & Benefits',
-                                        style: TextStyle(
-                                          fontFamily: 'Karla',
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
+                                    Center(
+                                      child: FractionallySizedBox(
+                                        widthFactor:
+                                            0.85, // 85% of the screen width
+                                        child: ElevatedButton(
+                                          onPressed: _nextState,
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.green,
+                                            foregroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 32, vertical: 16),
+                                            shadowColor:
+                                                Colors.black.withOpacity(0.3),
+                                            elevation: 5,
+                                          ),
+                                          child: Text(
+                                            widget.isEnglish
+                                                ? 'Uses & Benefits'
+                                                : 'Mga Paggamit at Benepisyo',
+                                            style: TextStyle(
+                                              fontFamily: 'Karla',
+                                              fontSize: 19,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ElevatedButton(
-                                    onPressed: _processState,
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.green,
-                                      foregroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 32, vertical: 16),
-                                      shadowColor:
-                                          Colors.black.withOpacity(0.3),
-                                      elevation: 5,
-                                    ),
-                                    child: Text(
-                                      'Process',
-                                      style: TextStyle(
-                                        fontFamily: 'Karla',
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500,
+                                  SizedBox(height: 10),
+                                  Center(
+                                    child: FractionallySizedBox(
+                                      widthFactor: 0.85,
+                                      child: ElevatedButton(
+                                        onPressed: _processState,
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.green,
+                                          foregroundColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 32, vertical: 16),
+                                          shadowColor:
+                                              Colors.black.withOpacity(0.3),
+                                          elevation: 5,
+                                        ),
+                                        child: Text(
+                                          widget.isEnglish
+                                              ? 'Process'
+                                              : 'Proseso',
+                                          style: TextStyle(
+                                            fontFamily: 'Karla',
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -340,6 +365,18 @@ class _PlantScreenState extends State<PlantScreen> {
                                     offset: Offset(0, 3),
                                   ),
                                 ],
+                              ),
+                              padding: EdgeInsets.all(16),
+                              child: Text(
+                                widget.isEnglish
+                                    ? 'Note: While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.'
+                                    : 'Tandaan: Habang nag-aalok ang GreenGem ng impormasyon tungkol sa mga potensyal na benepisyo sa kalusugan ng mga halamang halaman, hindi ito kapalit ng propesyonal na payong medikal. Mangyaring kumunsulta sa mga propesyonal sa pangangalagang pangkalusugan bago gumamit ng mga herbal na remedyo, lalo na kung mayroon kang mga kondisyong medikal o umiinom ng mga gamot.',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black54,
+                                ),
+                                textAlign: TextAlign.justify,
                               ),
                             ),
                           ],

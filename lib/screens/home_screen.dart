@@ -23,15 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
       selectedCategory = category;
       switch (category) {
         case 'All plants':
+        case 'Lahat ng halaman':
           displayedPlants = allPlants;
           break;
         case 'Culinary Herbs':
+        case 'Mga Pangluto na Halaman':
           displayedPlants = culinaryHerbs;
           break;
         case 'Herbal Teas':
+        case 'Mga Tsaa ng Halamang-gamot':
           displayedPlants = herbalTeas;
           break;
         case 'Aromatic Oils':
+        case 'Mga Aromatic na Langis':
           displayedPlants = aromaticOils;
           break;
       }
@@ -279,7 +283,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: CategoryButton(
                           label: languageManager.allPlants,
-                          isSelected: selectedCategory == 'All plants',
+                          isSelected: selectedCategory == 'All plants' ||
+                              selectedCategory == 'Lahat ng halaman',
                           onTap: filterPlants,
                         ),
                       ),
@@ -290,7 +295,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: CategoryButton(
                           label: languageManager.culinaryHerbs,
-                          isSelected: selectedCategory == 'Culinary Herbs',
+                          isSelected: selectedCategory == 'Culinary Herbs' ||
+                              selectedCategory == 'Mga Pangluto na Halaman',
                           onTap: filterPlants,
                         ),
                       ),
@@ -301,7 +307,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: CategoryButton(
                           label: languageManager.herbalTeas,
-                          isSelected: selectedCategory == 'Herbal Teas',
+                          isSelected: selectedCategory == 'Herbal Teas' ||
+                              selectedCategory == 'Mga Tsaa ng Halamang-gamot',
                           onTap: filterPlants,
                         ),
                       ),
@@ -311,8 +318,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: CategoryButton(
-                          label: 'Aromatic Oils',
-                          isSelected: selectedCategory == 'Aromatic Oils',
+                          label: languageManager.aromaticOils,
+                          isSelected: selectedCategory == 'Aromatic Oils' ||
+                              selectedCategory == 'Mga Aromatic na Langis',
                           onTap: filterPlants,
                         ),
                       ),

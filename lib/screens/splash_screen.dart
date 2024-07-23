@@ -296,10 +296,38 @@ class _TermsDialogState extends State<TermsDialog> {
       ),
       actions: [
         TextButton(
+          child: const Text('Decline'),
+          onPressed: () {
+            Navigator.of(context).pop();
+            _closeApp();
+          },
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.grey,
+            textStyle: const TextStyle(fontFamily: 'Karla'),
+          ),
+        ),
+        ElevatedButton(
           onPressed: _isChecked ? widget.onAccept : null,
           child: Text(languageManager.isEnglish ? 'Accept' : 'Tanggapin'),
+          style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(fontFamily: 'Karla'),
+            disabledForegroundColor: Colors.white.withOpacity(0.50),
+            disabledBackgroundColor: Colors.grey.withOpacity(0.50),
+            foregroundColor: Colors.white,
+            backgroundColor: _isChecked ? Colors.green : null,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            elevation: 0, // Remove shadow
+          ),
         ),
       ],
     );
+  }
+
+  void _closeApp() {
+    Navigator.of(context).pop();
   }
 }
