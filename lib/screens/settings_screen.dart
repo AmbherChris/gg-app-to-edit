@@ -92,7 +92,9 @@ class SettingsScreen extends StatelessWidget {
                         () => _showDialog(
                           context,
                           'Disclaimer',
-                          'While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.',
+                          languageManager.isEnglish
+                              ? 'While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.'
+                              : 'Habang nag-aalok ang GreenGem ng impormasyon sa mga potensyal na benepisyo sa kalusugan ng mga halamang herbal, hindi ito kapalit ng propesyonal na payong medikal. Mangyaring kumunsulta sa mga propesyonal sa pangangalagang pangkalusugan bago gumamit ng mga herbal na remedyo, lalo na kung mayroon kang mga kondisyong medikal o umiinom ng mga gamot.',
                           languageManager.isEnglish,
                         ),
                       ),
@@ -104,7 +106,9 @@ class SettingsScreen extends StatelessWidget {
                           languageManager.isEnglish
                               ? 'About'
                               : 'Tungkol sa amin',
-                          'GreenGem is the ultimate destination for herbal plant enthusiasts, offering valuable insights into the diverse world of botanical wonders. Our platform provides detailed information on various herbs, empowering users to explore their properties and applications with confidence. Join us on a journey to holistic wellness and reconnect with nature\'s healing power. Contact us for inquiries or feedback.',
+                          languageManager.isEnglish
+                              ? 'GreenGem is the ultimate destination for herbal plant enthusiasts, offering valuable insights into the diverse world of botanical wonders. Our platform provides detailed information on various herbs, empowering users to explore their properties and applications with confidence. Join us on a journey to holistic wellness and reconnect with nature\'s healing power. Contact us for inquiries or feedback.'
+                              : 'Ang GreenGem ay ang pinakahuling destinasyon para sa mga mahilig sa herbal na halaman, na nag-aalok ng mahahalagang insight sa magkakaibang mundo ng botanical wonders. Ang aming platform ay nagbibigay ng detalyadong impormasyon sa iba\'t ibang mga halamang gamot, na nagbibigay ng kapangyarihan sa mga user na galugarin ang kanilang mga ari-arian at mga aplikasyon nang may kumpiyansa. Samahan kami sa isang paglalakbay tungo sa holistic wellness at muling kumonekta sa nakapagpapagaling na kapangyarihan ng kalikasan. Makipag-ugnayan sa amin para sa mga katanungan o feedback.',
                           languageManager.isEnglish,
                         ),
                       ),
@@ -162,86 +166,95 @@ class SettingsScreen extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          ),
-          title: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.green),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
-              isEnglish ? 'Select Language' : 'Piliin ang Wika',
-              style: TextStyle(fontFamily: 'Montserrat'),
-            ),
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title:
-                    Text('English', style: TextStyle(fontFamily: 'Montserrat')),
-                leading: Radio<bool>(
-                  value: true,
-                  groupValue: selectedLanguage,
-                  onChanged: (bool? value) {
-                    selectedLanguage = value!;
-                    (context as Element).markNeedsBuild();
-                  },
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              ),
+              title: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.green),
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  isEnglish ? 'Select Language' : 'Piliin ang Wika',
+                  style: TextStyle(fontFamily: 'Montserrat'),
                 ),
               ),
-              ListTile(
-                title:
-                    Text('Tagalog', style: TextStyle(fontFamily: 'Montserrat')),
-                leading: Radio<bool>(
-                  value: false,
-                  groupValue: selectedLanguage,
-                  onChanged: (bool? value) {
-                    selectedLanguage = value!;
-                    (context as Element).markNeedsBuild();
-                  },
+              content: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ListTile(
+                      title: Text('English',
+                          style: TextStyle(fontFamily: 'Montserrat')),
+                      leading: Radio<bool>(
+                        value: true,
+                        groupValue: selectedLanguage,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            selectedLanguage = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Tagalog',
+                          style: TextStyle(fontFamily: 'Montserrat')),
+                      leading: Radio<bool>(
+                        value: false,
+                        groupValue: selectedLanguage,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            selectedLanguage = value!;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              child: Text(
-                isEnglish ? 'Close' : 'Isara',
-                style: TextStyle(fontFamily: 'Karla'),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.grey,
-              ),
-            ),
-            TextButton(
-              child: Text(
-                isEnglish ? 'Apply' : 'Gamitin',
-                style: TextStyle(fontFamily: 'Karla'),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-                _confirmLanguageChange(context, selectedLanguage);
-              },
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.green,
-              ),
-            ),
-          ],
+              actions: [
+                TextButton(
+                  child: Text(
+                    isEnglish ? 'Close' : 'Isara',
+                    style: TextStyle(fontFamily: 'Karla'),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.grey,
+                  ),
+                ),
+                TextButton(
+                  child: Text(
+                    isEnglish ? 'Apply' : 'Gamitin',
+                    style: TextStyle(fontFamily: 'Karla'),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    _confirmLanguageChange(
+                        context, selectedLanguage, isEnglish);
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.green,
+                  ),
+                ),
+              ],
+            );
+          },
         );
       },
     );
   }
 
-  void _confirmLanguageChange(BuildContext context, bool selectedLanguage) {
-    bool isEnglish = selectedLanguage;
+  void _confirmLanguageChange(
+      BuildContext context, bool selectedLanguage, bool currentLanguage) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -256,14 +269,14 @@ class SettingsScreen extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10.0),
             child: Text(
-              isEnglish
+              currentLanguage
                   ? 'Confirm Language Change'
                   : 'Kumpirmahin ang Pagbabago ng Wika',
               style: TextStyle(fontFamily: 'Montserrat'),
             ),
           ),
           content: Text(
-            isEnglish
+            currentLanguage
                 ? 'Are you sure you want to change the language?'
                 : 'Sigurado ka bang gusto mong baguhin ang wika?',
             style: TextStyle(fontFamily: 'Montserrat'),
@@ -271,7 +284,7 @@ class SettingsScreen extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               child: Text(
-                isEnglish ? 'Cancel' : 'Ikansela',
+                currentLanguage ? 'Cancel' : 'Ikansela',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
@@ -284,7 +297,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             TextButton(
               child: Text(
-                isEnglish ? 'Yes' : 'Oo',
+                currentLanguage ? 'Yes' : 'Oo',
                 style: TextStyle(fontFamily: 'Karla'),
               ),
               onPressed: () {
@@ -317,16 +330,25 @@ class SettingsScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
             padding: EdgeInsets.all(10.0),
-            child: Text(
-              title,
-              style: TextStyle(fontFamily: 'Montserrat'),
+            child: Center(
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22),
+              ),
             ),
           ),
-          content: Text(
-            content,
-            style: TextStyle(fontFamily: 'Montserrat'),
+          content: SingleChildScrollView(
+            child: Text(
+              content,
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontFamily: 'Montserrat', fontSize: 15),
+            ),
           ),
-          actions: [
+          actions: <Widget>[
             TextButton(
               child: Text(
                 isEnglish ? 'Close' : 'Isara',
