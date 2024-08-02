@@ -11,7 +11,7 @@ late Box<Plant> box;
 Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PlantAdapter());
-  box = await Hive.openBox<Plant>('plantBox');
+  box = await Hive.openBox<Plant>('plant_box');
 
   // Add initial data
   if (box.isEmpty) {

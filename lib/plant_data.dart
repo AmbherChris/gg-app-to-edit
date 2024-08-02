@@ -21,6 +21,7 @@ final List<Plant> allPlants = [
         'Mabuti Para sa Balat\n\nGinagamit itong gamot para sa mga paso at sugat hanggang ngayon dahil sa pagiging epektibo nito upang mabawasan ang oras ng paggaling ng mga paso. Gayundin, ang aloe vera ay naglalaman ng glucomannan, isang polysaccharide, at gibberellin, isang growth hormone. Gumagana ang mga ito sa pamamagitan ng pakikipag-ugnayan sa mga receptor ng growth factor na matatagpuan sa fibro blast. Bilang isang resulta, ang paglaganap ng fibro blasts ay na-trigger, na nagpapataas ng synthesis ng collagen. Kaya naman, ang proseso ay nagpapabilis ng paggaling ng sugat.',
     tag_process:
         'Upang anihin ang iyong aloe plant para sa gel at juice:\n\n• Mag-alis ng 3-4 na dahon nang sabay-sabay, pumili ng makapal na dahon mula sa mga panlabas na bahagi ng halaman.\n• Tiyaking malusog ang mga dahon at walang anumang amag o pinsala.\n• Gupitin ang mga ito malapit sa tangkay. Karamihan sa mga kapaki-pakinabang na sustansya ay matatagpuan sa base ng mga dahon.\n• Iwasan ang mga ugat.\n• Hugasan at patuyuin ang mga dahon.\n• Putulin ng kutsilyo ang tusok na mga gilid.\n• Gamit ang kutsilyo o ang iyong mga daliri , paghiwalayin ang panloob na gel mula sa labas ng dahon. Ang panloob na gel ay ang bahagi ng aloe na iyong gagamitin.\n• Hayaang maubos ang dilaw na katas mula sa dahon. Ito ang aloe vera latex. Kung plano mong gamitin ang latex, maaari mong hulihin ito sa isang lalagyan. Kung wala kang planong gamitin ang latex, maaari mo itong itapon.\n• Gupitin ang aloe gel sa mga hiwa o cube.\n\nPaano gumamit ng sariwang aloe gel:\n\nMaaari kang direktang maglagay ng sariwang aloe gel sa iyong balat o sundin ang isang recipe upang makagawa ng isang lutong bahay na produktong pampaganda. Maaari din itong idagdag sa pagkain, smoothies, at inumin.\n\nUpang gumawa ng aloe juice, gumamit ng 1 tasa ng likido para sa bawat 2 kutsara ng aloe gel. Isama ang anumang iba pang sangkap, tulad ng prutas, at gumamit ng blender o food processor upang paghaluin ang iyong inumin.\n\nKung plano mong ubusin ang mga sariwang hiwa ng aloe gel, mananatili ito sa refrigerator sa loob ng ilang araw, ngunit pinakamahusay na ubusin ito sa lalong madaling panahon. Maaari kang palaging mag-imbak ng aloe vera gel sa freezer kung hindi ka pa handang gamitin ito kaagad.',
+    video_url: 'https://www.youtube.com/watch?v=Miy_qestkZw',
     image_path: 'assets/plants/aloe-vera.png',
   ),
   Plant(
@@ -38,6 +39,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/asparagus.png',
   ),
   Plant(
@@ -55,6 +57,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/avocado.png',
   ),
   Plant(
@@ -71,6 +74,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/bashful-mimosa.png',
   ),
   Plant(
@@ -87,6 +91,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/bitter-melon.png',
   ),
   Plant(
@@ -103,6 +108,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/black-plum.png',
   ),
   Plant(
@@ -118,6 +124,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/blue-pea.png',
   ),
   Plant(
@@ -134,6 +141,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/bluea-camphor.png',
   ),
   Plant(
@@ -150,6 +158,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/bottle-gourd.png',
   ),
   Plant(
@@ -167,6 +176,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/broccoli.png',
   ),
   Plant(
@@ -183,6 +193,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/calamondin.png',
   ),
   Plant(
@@ -199,6 +210,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/cantaloupe.png',
   ),
   Plant(
@@ -216,6 +228,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/carrot.png',
   ),
   Plant(
@@ -233,6 +246,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/chayote.png',
   ),
   Plant(
@@ -248,6 +262,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/coconut.png',
   ),
   Plant(
@@ -264,6 +279,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/corn-mint.png',
   ),
   Plant(
@@ -280,6 +296,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/dandelion.png',
   ),
   Plant(
@@ -297,6 +314,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/dragon-fruit.png',
   ),
   Plant(
@@ -313,6 +331,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/false-garlic.png',
   ),
   Plant(
@@ -329,6 +348,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/fan-palm.png',
   ),
   Plant(
@@ -345,6 +365,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/five-leaf-chaste-tree.png',
   ),
   Plant(
@@ -361,6 +382,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/galip-nut.png',
   ),
   Plant(
@@ -375,6 +397,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/garlic.png',
   ),
   Plant(
@@ -391,6 +414,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/ginger.png',
   ),
   Plant(
@@ -407,6 +431,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/goat-weed.png',
   ),
   Plant(
@@ -423,6 +448,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/goji-berry.png',
   ),
   Plant(
@@ -439,6 +465,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/guava.png',
   ),
   Plant(
@@ -455,6 +482,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/indian-acalypa.png',
   ),
   Plant(
@@ -471,6 +499,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/jasmine.png',
   ),
   Plant(
@@ -487,6 +516,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/jujube-plum.png',
   ),
   Plant(
@@ -503,6 +533,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/lead-tree.png',
   ),
   Plant(
@@ -519,6 +550,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/mango.png',
   ),
   Plant(
@@ -535,6 +567,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/mangosteen.png',
   ),
   Plant(
@@ -551,6 +584,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/manila-hemp.png',
   ),
   Plant(
@@ -567,6 +601,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/miracle-plant.png',
   ),
   Plant(
@@ -583,6 +618,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/moringa.png',
   ),
   Plant(
@@ -599,6 +635,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/morning-glory.png',
   ),
   Plant(
@@ -614,6 +651,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/mulberry.png',
   ),
   Plant(
@@ -630,6 +668,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/onion.png',
   ),
   Plant(
@@ -646,6 +685,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/oregano.png',
   ),
   Plant(
@@ -661,6 +701,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/painted-nettle.png',
   ),
   Plant(
@@ -677,6 +718,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/radish.png',
   ),
   Plant(
@@ -693,6 +735,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/rangoon-creeper.png',
   ),
   Plant(
@@ -709,6 +752,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/red-physic-nut.png',
   ),
   Plant(
@@ -725,6 +769,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/rose-leadwort.png',
   ),
   Plant(
@@ -741,6 +786,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/rosemary.png',
   ),
   Plant(
@@ -757,6 +803,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/rosewood.png',
   ),
   Plant(
@@ -773,6 +820,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/sage.png',
   ),
   Plant(
@@ -789,6 +837,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/senna-alata.png',
   ),
   Plant(
@@ -805,6 +854,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/sesame.png',
   ),
   Plant(
@@ -821,6 +871,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/shiny-bush.png',
   ),
   Plant(
@@ -836,6 +887,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/soybean.png',
   ),
   Plant(
@@ -852,6 +904,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/star-anise.png',
   ),
   Plant(
@@ -867,6 +920,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/taro.png',
   ),
   Plant(
@@ -883,6 +937,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/thorny-amaranth.png',
   ),
   Plant(
@@ -899,6 +954,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/turmeric.png',
   ),
   Plant(
@@ -914,6 +970,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/vetiver-grass.png',
   ),
   Plant(
@@ -930,6 +987,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/water-lily.png',
   ),
   Plant(
@@ -944,6 +1002,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/weeping-fig.png',
   ),
   Plant(
@@ -960,6 +1019,7 @@ final List<Plant> allPlants = [
     tag_uses: 'test tag uses',
     tag_benefits: 'test tag benefits',
     tag_process: 'test tag process',
+    video_url: 'https:///www.youtube.com/placeholder/url',
     image_path: 'assets/plants/wild-tea.png',
   ),
 

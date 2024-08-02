@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gg_app/models/plants.dart';
+import 'package:gg_app/video_player_widget.dart';
 
 class PlantScreen extends StatefulWidget {
   final Plant plant;
@@ -270,6 +271,11 @@ class _PlantScreenState extends State<PlantScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 20),
+                                  if (widget.plant.video_url != null)
+                                    VideoPlayerWidget(
+                                      video_url: widget.plant.video_url!,
+                                    ),
+                                  SizedBox(height: 20),
                                   Text(
                                     getTextContent(),
                                     style: TextStyle(
@@ -287,9 +293,10 @@ class _PlantScreenState extends State<PlantScreen> {
                                 children: [
                                   if (_contentState == ContentState.description)
                                     Center(
-                                      child: FractionallySizedBox(
-                                        widthFactor:
-                                            0.85, // 85% of the screen width
+                                      child: SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.85, // 85% of the screen width
                                         child: ElevatedButton(
                                           onPressed: _nextState,
                                           style: ElevatedButton.styleFrom(
@@ -314,14 +321,17 @@ class _PlantScreenState extends State<PlantScreen> {
                                               fontSize: 19,
                                               fontWeight: FontWeight.w500,
                                             ),
+                                            textAlign: TextAlign
+                                                .center, // Center text within button
                                           ),
                                         ),
                                       ),
                                     ),
                                   SizedBox(height: 10),
                                   Center(
-                                    child: FractionallySizedBox(
-                                      widthFactor: 0.85,
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.85, // 85% of the screen width
                                       child: ElevatedButton(
                                         onPressed: _processState,
                                         style: ElevatedButton.styleFrom(
@@ -346,6 +356,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                             fontSize: 19,
                                             fontWeight: FontWeight.w500,
                                           ),
+                                          textAlign: TextAlign
+                                              .center, // Center text within button
                                         ),
                                       ),
                                     ),

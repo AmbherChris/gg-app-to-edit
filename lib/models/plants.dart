@@ -17,6 +17,7 @@ class Plant {
     required this.tag_uses,
     required this.tag_benefits,
     required this.tag_process,
+    required this.video_url,
   });
 
   @HiveField(0)
@@ -54,4 +55,7 @@ class Plant {
 
   @HiveField(11)
   String tag_process;
+
+  @HiveField(12)
+  String video_url;
 }
