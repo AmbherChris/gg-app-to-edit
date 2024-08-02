@@ -29,13 +29,14 @@ class PlantAdapter extends TypeAdapter<Plant> {
       tag_uses: fields[9] as String,
       tag_benefits: fields[10] as String,
       tag_process: fields[11] as String,
+      video_url: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Plant obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.eng_name)
       ..writeByte(1)
@@ -59,7 +60,9 @@ class PlantAdapter extends TypeAdapter<Plant> {
       ..writeByte(10)
       ..write(obj.tag_benefits)
       ..writeByte(11)
-      ..write(obj.tag_process);
+      ..write(obj.tag_process)
+      ..writeByte(12)
+      ..write(obj.video_url);
   }
 
   @override
