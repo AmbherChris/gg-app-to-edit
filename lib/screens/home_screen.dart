@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'plant_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'settings_screen.dart';
+import 'plant_scanner_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -74,6 +75,18 @@ class _HomeScreenState extends State<HomeScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => SettingsScreen(),
+      ),
+    );
+  }
+
+  void navigateToPlantScanner() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PlantScanner(
+          isEnglish:
+              Provider.of<LanguageManager>(context, listen: false).isEnglish,
+        ),
       ),
     );
   }
@@ -263,9 +276,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 100,
                         height: 100,
                       ),
-                      onPressed: () {
-                        // Implement plant scanner feature
-                      },
+                      onPressed: navigateToPlantScanner,
                     ),
                   ),
                 ),
