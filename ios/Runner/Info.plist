@@ -53,5 +53,10 @@
     <true/>
     <key>NSAllowsLocalNetworking</key>
     <true/>
+	<key>UISupportedInterfaceOrientations</key>
+<array>
+  <string>UIInterfaceOrientationPortrait</string>
+  <string>UIInterfaceOrientationPortraitUpsideDown</string>
+</array>
 </dict>
 </plist>
