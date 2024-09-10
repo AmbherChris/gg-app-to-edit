@@ -104,7 +104,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       color: Colors.white,
                       fontSize: screenHeight * 0.04,
                       fontWeight: FontWeight.normal,
-                      fontFamily: 'Karla',
+                      fontFamily: 'Montserrat',
                     ),
                   ),
                 ),
@@ -137,9 +137,9 @@ class _SplashScreenState extends State<SplashScreen> {
                               : 'Magsimula',
                           style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.normal,
-                            fontSize: screenHeight * 0.03,
-                            fontFamily: 'Karla',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            fontFamily: 'Montserrat',
                           ),
                         ),
                       ),
@@ -188,8 +188,8 @@ class _TermsDialogState extends State<TermsDialog> {
           children: [
             RichText(
               text: TextSpan(
-                style: const TextStyle(
-                    fontFamily: 'Montserrat', color: Colors.black),
+                style:
+                    const TextStyle(fontFamily: 'Karla', color: Colors.black),
                 children: [
                   TextSpan(
                     text: languageManager.isEnglish
@@ -304,14 +304,14 @@ class _TermsDialogState extends State<TermsDialog> {
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: Colors.grey,
-            textStyle: const TextStyle(fontFamily: 'Karla'),
+            textStyle: const TextStyle(fontFamily: 'Montserrat'),
           ),
         ),
         ElevatedButton(
           onPressed: _isChecked ? widget.onAccept : null,
           child: Text(languageManager.isEnglish ? 'Accept' : 'Tanggapin'),
           style: ElevatedButton.styleFrom(
-            textStyle: const TextStyle(fontFamily: 'Karla'),
+            textStyle: const TextStyle(fontFamily: 'Montserrat'),
             disabledForegroundColor: Colors.white.withOpacity(0.50),
             disabledBackgroundColor: Colors.grey.withOpacity(0.50),
             foregroundColor: Colors.white,

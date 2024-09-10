@@ -200,7 +200,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                         ? 'Tagalog name: ${widget.plant.tag_name}'
                                         : 'English name: ${widget.plant.eng_name}',
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 19,
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black87,
@@ -210,7 +210,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                   Text(
                                     'Scientific name: ${widget.plant.sci_name}',
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 19,
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black87,
@@ -220,8 +220,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                   Text(
                                     getTextContent(),
                                     style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'Montserrat',
+                                      fontSize: 19,
+                                      fontFamily: 'Karla',
                                       color: Colors.black87,
                                     ),
                                     textAlign: TextAlign.justify,
@@ -236,8 +236,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                   Text(
                                     getTextContent(),
                                     style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'Montserrat',
+                                      fontSize: 19,
+                                      fontFamily: 'Karla',
                                       color: Colors.black87,
                                     ),
                                     textAlign: TextAlign.justify,
@@ -258,8 +258,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                   Text(
                                     getBenefits(),
                                     style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'Montserrat',
+                                      fontSize: 19,
+                                      fontFamily: 'Karla',
                                       color: Colors.black87,
                                     ),
                                     textAlign: TextAlign.justify,
@@ -279,8 +279,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                   Text(
                                     getTextContent(),
                                     style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'Montserrat',
+                                      fontSize: 19,
+                                      fontFamily: 'Karla',
                                       color: Colors.black87,
                                     ),
                                     textAlign: TextAlign.justify,
@@ -318,7 +318,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                                 : 'Mga Paggamit at Benepisyo',
                                             style: TextStyle(
                                               fontFamily: 'Karla',
-                                              fontSize: 19,
+                                              fontSize: 20,
                                               fontWeight: FontWeight.w500,
                                             ),
                                             textAlign: TextAlign
@@ -352,8 +352,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                               ? 'Process'
                                               : 'Proseso',
                                           style: TextStyle(
-                                            fontFamily: 'Karla',
-                                            fontSize: 19,
+                                            fontFamily: 'Montserrat',
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w500,
                                           ),
                                           textAlign: TextAlign
@@ -384,8 +384,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                     ? 'Note: While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.'
                                     : 'Tandaan: Habang nag-aalok ang GreenGem ng impormasyon tungkol sa mga potensyal na benepisyo sa kalusugan ng mga halamang halaman, hindi ito kapalit ng propesyonal na payong medikal. Mangyaring kumunsulta sa mga propesyonal sa pangangalagang pangkalusugan bago gumamit ng mga herbal na remedyo, lalo na kung mayroon kang mga kondisyong medikal o umiinom ng mga gamot.',
                                 style: TextStyle(
-                                  fontSize: 14,
-                                  fontFamily: 'Montserrat',
+                                  fontSize: 16,
+                                  fontFamily: 'Karla',
                                   color: Colors.black54,
                                 ),
                                 textAlign: TextAlign.justify,

@@ -13,11 +13,11 @@ class SettingsScreen extends StatelessWidget {
           Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.13,
+                height: MediaQuery.of(context).size.height * 0.17,
                 color: Colors.black,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.87,
+                height: MediaQuery.of(context).size.height * 0.83,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -180,7 +180,11 @@ class SettingsScreen extends StatelessWidget {
                 padding: EdgeInsets.all(10.0),
                 child: Text(
                   isEnglish ? 'Select Language' : 'Piliin ang Wika',
-                  style: TextStyle(fontFamily: 'Montserrat'),
+                  textAlign: TextAlign.center, // Move this out of TextStyle
+                  style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               content: SingleChildScrollView(
@@ -189,7 +193,7 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       title: Text('English',
-                          style: TextStyle(fontFamily: 'Montserrat')),
+                          style: TextStyle(fontFamily: 'Karla', fontSize: 20)),
                       leading: Radio<bool>(
                         value: true,
                         groupValue: selectedLanguage,
@@ -202,7 +206,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     ListTile(
                       title: Text('Tagalog',
-                          style: TextStyle(fontFamily: 'Montserrat')),
+                          style: TextStyle(fontFamily: 'Karla', fontSize: 20)),
                       leading: Radio<bool>(
                         value: false,
                         groupValue: selectedLanguage,
@@ -217,33 +221,40 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ),
               actions: [
-                TextButton(
-                  child: Text(
-                    isEnglish ? 'Close' : 'Isara',
-                    style: TextStyle(fontFamily: 'Karla'),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.grey,
-                  ),
-                ),
-                TextButton(
-                  child: Text(
-                    isEnglish ? 'Apply' : 'Gamitin',
-                    style: TextStyle(fontFamily: 'Karla'),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    _confirmLanguageChange(
-                        context, selectedLanguage, isEnglish);
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.green,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      child: Text(
+                        isEnglish ? 'Close' : 'Isara',
+                        style:
+                            TextStyle(fontFamily: 'Montserrat', fontSize: 15),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(width: 10), // Optional spacing between buttons
+                    TextButton(
+                      child: Text(
+                        isEnglish ? 'Apply' : 'Gamitin',
+                        style: TextStyle(fontFamily: 'Montserrat'),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        _confirmLanguageChange(
+                            context, selectedLanguage, isEnglish);
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.green,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             );
@@ -272,20 +283,20 @@ class SettingsScreen extends StatelessWidget {
               currentLanguage
                   ? 'Confirm Language Change'
                   : 'Kumpirmahin ang Pagbabago ng Wika',
-              style: TextStyle(fontFamily: 'Montserrat'),
+              style: TextStyle(fontFamily: 'Karla'),
             ),
           ),
           content: Text(
             currentLanguage
                 ? 'Are you sure you want to change the language?'
                 : 'Sigurado ka bang gusto mong baguhin ang wika?',
-            style: TextStyle(fontFamily: 'Montserrat'),
+            style: TextStyle(fontFamily: 'Karla'),
           ),
           actions: <Widget>[
             TextButton(
               child: Text(
                 currentLanguage ? 'Cancel' : 'Ikansela',
-                style: TextStyle(fontFamily: 'Karla'),
+                style: TextStyle(fontFamily: 'Montserrat'),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -298,7 +309,7 @@ class SettingsScreen extends StatelessWidget {
             TextButton(
               child: Text(
                 currentLanguage ? 'Yes' : 'Oo',
-                style: TextStyle(fontFamily: 'Karla'),
+                style: TextStyle(fontFamily: 'Montserrat'),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -316,7 +327,11 @@ class SettingsScreen extends StatelessWidget {
   }
 
   void _showDialog(
-      BuildContext context, String title, String content, bool isEnglish) {
+    BuildContext context,
+    String title,
+    String content,
+    bool isEnglish,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -335,9 +350,10 @@ class SettingsScreen extends StatelessWidget {
                 title,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22),
+                  fontFamily: 'Montserrat', // Title font
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
               ),
             ),
           ),
@@ -345,14 +361,20 @@ class SettingsScreen extends StatelessWidget {
             child: Text(
               content,
               textAlign: TextAlign.justify,
-              style: TextStyle(fontFamily: 'Montserrat', fontSize: 15),
+              style: TextStyle(
+                fontFamily: 'Karla', // Content font
+                fontSize: 17,
+              ),
             ),
           ),
           actions: <Widget>[
             TextButton(
               child: Text(
                 isEnglish ? 'Close' : 'Isara',
-                style: TextStyle(fontFamily: 'Karla'),
+                style: TextStyle(
+                  fontFamily: 'Montserrat', // Action button font
+                  fontSize: 15,
+                ),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
