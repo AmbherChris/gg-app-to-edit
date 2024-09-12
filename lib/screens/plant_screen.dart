@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gg_app/models/plants.dart';
-import 'package:gg_app/video_player_widget.dart';
+import 'package:gg_app/screens/video_screen.dart';
 
 class PlantScreen extends StatefulWidget {
   final Plant plant;
@@ -201,7 +201,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                         : 'English name: ${widget.plant.eng_name}',
                                     style: TextStyle(
                                       fontSize: 19,
-                                      fontFamily: 'Montserrat',
+                                      fontFamily: 'Karla',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black87,
                                     ),
@@ -211,7 +211,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                     'Scientific name: ${widget.plant.sci_name}',
                                     style: TextStyle(
                                       fontSize: 19,
-                                      fontFamily: 'Montserrat',
+                                      fontFamily: 'Karla',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black87,
                                     ),
@@ -267,26 +267,65 @@ class _PlantScreenState extends State<PlantScreen> {
                                 ],
                               ),
                             if (_contentState == ContentState.process)
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 20),
-                                  if (widget.plant.video_url != null)
-                                    VideoPlayerWidget(
-                                      video_url: widget.plant.video_url!,
+                              Center(
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.50, // 50% of the screen width
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              VideoPlayerScreen(
+                                            plant: widget.plant,
+                                            isEnglish: widget.isEnglish,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.green,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 32, vertical: 16),
+                                      shadowColor:
+                                          Colors.black.withOpacity(0.3),
+                                      elevation: 5,
                                     ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    getTextContent(),
-                                    style: TextStyle(
-                                      fontSize: 19,
-                                      fontFamily: 'Karla',
-                                      color: Colors.black87,
+                                    child: Text(
+                                      widget.isEnglish
+                                          ? 'View Video'
+                                          : 'Tignan ang Video',
+                                      style: TextStyle(
+                                        fontFamily: 'Karla',
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign
+                                          .center, // Center text within button
                                     ),
-                                    textAlign: TextAlign.justify,
                                   ),
-                                ],
+                                ),
                               ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 20),
+                                Text(
+                                  getTextContent(),
+                                  style: TextStyle(
+                                    fontSize: 19,
+                                    fontFamily: 'Karla',
+                                    color: Colors.black87,
+                                  ),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ],
+                            ),
                             SizedBox(height: 20),
                             if (_contentState != ContentState.process)
                               Column(
@@ -318,7 +357,7 @@ class _PlantScreenState extends State<PlantScreen> {
                                                 : 'Mga Paggamit at Benepisyo',
                                             style: TextStyle(
                                               fontFamily: 'Karla',
-                                              fontSize: 20,
+                                              fontSize: 19,
                                               fontWeight: FontWeight.w500,
                                             ),
                                             textAlign: TextAlign
@@ -352,8 +391,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                               ? 'Process'
                                               : 'Proseso',
                                           style: TextStyle(
-                                            fontFamily: 'Montserrat',
-                                            fontSize: 20,
+                                            fontFamily: 'Karla',
+                                            fontSize: 19,
                                             fontWeight: FontWeight.w500,
                                           ),
                                           textAlign: TextAlign
@@ -384,8 +423,8 @@ class _PlantScreenState extends State<PlantScreen> {
                                     ? 'Note: While GreenGem offers information on the potential health benefits of herbal plants, it is not a substitute for professional medical advice. Please consult healthcare professionals before using herbal remedies, especially if you have existing medical conditions or are taking medications.'
                                     : 'Tandaan: Habang nag-aalok ang GreenGem ng impormasyon tungkol sa mga potensyal na benepisyo sa kalusugan ng mga halamang halaman, hindi ito kapalit ng propesyonal na payong medikal. Mangyaring kumunsulta sa mga propesyonal sa pangangalagang pangkalusugan bago gumamit ng mga herbal na remedyo, lalo na kung mayroon kang mga kondisyong medikal o umiinom ng mga gamot.',
                                 style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'Karla',
+                                  fontSize: 14,
+                                  fontFamily: 'Montserrat',
                                   color: Colors.black54,
                                 ),
                                 textAlign: TextAlign.justify,
